@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Request_01</title>
+</head>
+<body>
+<h1>Request_01</h1>
+<form method="post" action="request.jsp" >
+	성명:<input name="studentname" /><br>
+	학번:<input name="number" /><br>
+	성별 : 남자<input type="radio" name="gender" value="man" checked >
+		여자 <input type="radio" name="gender" value="woman" checked > 
+		
+		전공 : <select name="major" >
+			<option selected value="국문학과" >국문학과</option>
+			<option value="수학학과" >수학학과</option>
+			<option value="영문학과" >영문학과</option>
+			<option value="정치문학과" >정치문학과</option>
+			<option value="체육학과" >체육학과</option>
+		</select>
+		<input type="submit" value="보내기" />
+</form>
+
+<h1>Session Example</h1>
+<form method="post" action="session_01.jsp" >
+	성명:<input name="id"/><br>
+	학번:<input name="password" type="password" /><br>
+	<input type="submit" value="로그인" />
+</form>
+	
+</body>
+</html>
