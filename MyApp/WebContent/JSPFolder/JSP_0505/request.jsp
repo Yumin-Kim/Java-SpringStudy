@@ -28,20 +28,9 @@
 </head>
 <body>
 	<h1>Request Example</h1>
-	섬영  : <%=name %><br>
-	num  : <%=number%><br>
-	major  : <%=major%><br>
-	gender  : <%=gender %><br>
-	<%=prtocol %>>>>>
-	<%=sercerName %>>>>>
-	<%=serverPort %>>>>>
-	<%=remoteAddr %>>>>>
-	<%=remoteHost %>>>>>
-	<%=method %>>>>>
-	requasdesturi::<%=requesturi %>>>>>
-	requesasdasdturl::<%=requesturl %>>>>>
-	<%=useBrowser %>>>>>
-	<%=filType %>>>>>
+
+	requesasdasdturl::<%=serverPort %>>>>>
+	
 	
 </body>
 </html>
