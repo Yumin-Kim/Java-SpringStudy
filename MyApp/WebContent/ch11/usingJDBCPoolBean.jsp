@@ -1,15 +1,14 @@
-<%@ page 
-	language="java" 
-	contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-%>
-<%@ page import = "java.util.*,ch11.*"%>
-<jsp:useBean id = "regMgr" class = "ch11.RegisterMgr" scope="page"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import ="java.util.*,ch11.*" %>
+
+<jsp:useBean id = "regMgr" class="ch11.RegisterMgrPool"/>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Connection JSP & DataBase </title>
+<title>Bean과 커넥션 풀을 사용한 데이터베이스 연동예제</title>
 <style>
 table {
   border-collapse: collapse;
@@ -24,11 +23,12 @@ th, td {
 tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 </head>
-<body bgColor="#ffffcc" >
-<h2>Using Bean to connection database</h2>
-<h3>Student Information</h3>
+<body>
+
+<h1>Bean과 커넥션 풀을 사용한 데이터베이스 연동예제</h1>
+
 <table border="#0000ff"  border="1">
-	<tr>
+<tr>
 		<td><strong>ID</strong></td>
 		<td><strong>Password</strong></td>
 		<td><strong>Name</strong></td>
@@ -36,13 +36,13 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 		<td><strong>PhoneNumber</strong></td>
 		<td><strong>Comments</strong></td>
 	</tr>
-	
-	<%
-		Vector<RegisterBean> vList = regMgr.getRegisterList();
-		int counter = vList.size();
-		for(int i = 0 ; i < counter ; i++){
-			RegisterBean regBean = vList.get(i);
-	%>
+<%
+	Vector <RegisterBean> vlist = regMgr.getRegisterList();
+int counter =vlist.size();
+for(int i = 0; i < vlist.size() ; i++){
+	RegisterBean regBean = vlist.get(i);
+%>
+
 <tr>
 	<td><%=regBean.getId() %></td>
 	<td><%=regBean.getPassword() %></td>
@@ -53,9 +53,5 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 	<%} %>
 </tr>	
 </table>
-
-</br>
-총 학생 수는 : <%=counter %>
-
 </body>
 </html>

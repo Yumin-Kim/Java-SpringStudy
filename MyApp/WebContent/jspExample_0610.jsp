@@ -21,7 +21,7 @@
 	
 	JDBC API (java.sql 패키지)
 	Driver : 모든 드라이버 클래스들이 구현 해야 하는 인터페이스
-	DriverManger : 드라이버 를 로드하고 데이터베이스에 연결
+	DriverManager : 드라이버 를 로드하고 데이터베이스에 연결
 	Connection : 특정 데이터 베이스와의 연결
 	Statement : SQL문을 실행해 작성된 결과를 반환 
 	preparedStatement : 사전에 컴파일 된 SQL문을 실행

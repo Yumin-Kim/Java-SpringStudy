@@ -13,7 +13,7 @@
 <h3>선언문에서 선언된 변수는 JSP페이지가 서블릿 코드로 변환이 되면서 서블릿 클래스의 멤버 변수로 변환 됨</h3>
 <h3>로직이 시작되기전에 호이스팅으로 첨으로 인식한다!! </h3>
 
-<%! String declaration = "Delclaration!! JSP에서 출력된 값입니다!!"; %>
+<%! String declaration = "Delclaration!! JSP에서 출력된 값입니다**************"; %>
 <%! public String decMethod(){
 	return declaration;	
 }%>
@@ -30,6 +30,7 @@
 </ul>
 <%!
 	String team = "Method 선언 < %! % >";
+	
 %>
 <%!
 	String name = team + "Fighting";
@@ -37,7 +38,9 @@
 		return team;
 	}
 %>
-
+<%
+String declaration = "Hekki";
+%>
 <%=name %></br>
 <%=getName()%>
 

@@ -10,10 +10,10 @@
 <body bgColor="#996600">
   <table width="500" align="center" cellspacing="0" cellpadding="5">
     <tr>
-      <td align="center" valign="middle" bgColor="#FFFFCC">
+      <td align="center" valign="middle" bgColor="#996633">
         <table border="1" cellspacing="0" cellpadding="2" align="center">
           <form action="201610309Proc.jsp" name="regForm" method="post">
-            <tr align="center" bgColor="#996600">
+            <tr align="center" bgColor="#996633">
               <td colspan="3">
                 <font color="#ffffff"><b>회원가입 by 김유민</b></font>
               </td>
