@@ -32,7 +32,7 @@ if(id!=null){
             </tr>
             <tr>
               <td>패스워드</td>
-              <td ><input type="password" name="pwd" size = "15" required /></td>
+              <td ><input name="pwd" size = "15" required /></td>
               <td>패스워드를 적어주세요</td>
             </tr>
        <tr>

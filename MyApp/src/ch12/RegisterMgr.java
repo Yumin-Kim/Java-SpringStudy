@@ -20,7 +20,7 @@ public class RegisterMgr {
 		
 		try {
 			connection = pool.getConnection();
-			String query = "select count(*) from tbladdress where id = ? and password = ?";
+			String query = "select count(*) from tbladdress where id=? and password=?";
 			pstmt = connection.prepareStatement(query);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
