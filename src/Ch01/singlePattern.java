@@ -1,0 +1,22 @@
+package Ch01;
+
+public class singlePattern {
+
+	public int systemVol = 5;
+	
+	private static singlePattern single;
+	
+	public static singlePattern getInstance() {
+		
+		if(single == null) 
+			single = new singlePattern();
+		
+		return single;
+		
+	}
+	
+	private singlePattern() {
+		
+	}
+
+}
