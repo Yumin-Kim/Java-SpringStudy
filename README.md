@@ -11,9 +11,13 @@
             * node에서 프로그램 작성후 npm run build를 통해 만들어진 js 파일 node 파일명.js 와 매우 유사하게 한다.
             * node에서는 npm yarm spring에서는 maven ,gradle과 동일한 빌드 도구 의존성 주입 도구로 활용된다.
 ## Todo List - 찾아보기
-* [https://sas-study.tistory.com/274](스프링 , 스프링 부트 차이)
-* [https://honeyinfo7.tistory.com/56](어노 테이션)
-* [https://gmlwjd9405.github.io/2019/01/04/logging-with-slf4j.html](로깅 , slf4j 관련 포스팅)
+* [스프링 , 스프링 부트 차이](https://sas-study.tistory.com/274)
+* [어노 테이션](https://honeyinfo7.tistory.com/56)
+* [로깅 , slf4j 관련 포스팅](https://gmlwjd9405.github.io/2019/01/04/logging-with-slf4j.html)
+* [Spring AOP 관련 포스팅](https://velog.io/@gwontaeyong/Spring-AOP%EC%97%90%EC%84%9C-Proxy%EB%9E%80)
+    * [프록시 패턴 강의](https://limkydev.tistory.com/79)
+* [멀티스레드 query요청 처리하는 방법](https://nesoy.github.io/articles/2019-05/Database-Transaction-isolation)
+* [자바 스택 프레임과 JVM](https://blog.daum.net/creazier/15309107)
 * 필요한 자바 문법 정리하면서 진행하기 람다식(Arrow function이랑 비슷하여 거부감 X 단지 익명 객체선언이 필요한거만 생각하면 될듯)
 * 빌드 도구 gradle , Maven
 * 아파치 ? 아파치 톰켓 ?차이
