@@ -1,9 +1,9 @@
 package startspring.hello_spring.repository;
 
+import org.springframework.stereotype.Repository;
 import startspring.hello_spring.domain.Member;
 
 import java.util.*;
-
 public class MemmoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>(); // 실무에서는 동시성 문제로 인해 concurrentHashMap사용 https://pplenty.tistory.com/17 해당 포스팅 참고
     private static long sequence = 0L; // 시스템상에서 지정해주는 키 값이라고 생각 동시성 문제로 atomLong사용 https://codechacha.com/ko/java-atomic-long/
