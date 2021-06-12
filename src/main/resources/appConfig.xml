@@ -11,15 +11,16 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <bean id="discountPolicy" class="startspring.hello_spring.discount.RateDiscountPolicy"/>
+    <bean id="memberRepository" class="startspring.hello_spring.member.MemoryMemberRepository"/>
     <bean id="memberService" class="startspring.hello_spring.member.MemberServiceImpl">
         <constructor-arg name="memberRepository" ref="memberRepository"/>
     </bean>
-    <bean id="memberRepository" class="startspring.hello_spring.member.MemberRepository"/>
 
     <bean id="orderService" class="startspring.hello_spring.order.OrderServiceImpl">
+        <constructor-arg name="discountPolicy" ref="discountPolicy"/>
         <constructor-arg name="memberRepository" ref="memberRepository"/>
-        <constructor-arg name="discountRepository" ref="discountRepository"/>
     </bean>
-    <bean id="discountRepository" class="startspring.hello_spring.discount.RateDiscountPolicy"></bean>
+
 
   </beans>

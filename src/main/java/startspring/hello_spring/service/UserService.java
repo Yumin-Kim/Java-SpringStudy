@@ -1,15 +1,18 @@
 package startspring.hello_spring.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import startspring.hello_spring.domain.Member;
 import startspring.hello_spring.repository.MemberRepository;
-import startspring.hello_spring.repository.MemmoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
+@Service
 public class UserService {
     private final MemberRepository memberRepository;
-
+    @Autowired
     public UserService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

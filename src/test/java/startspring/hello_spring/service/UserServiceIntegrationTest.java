@@ -5,8 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
+import startspring.hello_spring.ConfigSpring;
 import startspring.hello_spring.domain.Member;
 import startspring.hello_spring.repository.MemmoryMemberRepository;
 
@@ -19,14 +23,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Transactional // 자동으로 트랜잭션을 일어난다음 롤백을 해주는 어노테이션 >> 테스트간에 DB관련 부가적인 side Effect의 부산물을 제거할 필요가 없다.
 class UserServiceIntegrationTest {
 
-    @Autowired
-    UserService userService;
+    UserService userService =new UserService(new MemmoryMemberRepository());;
+
+
 
     @Test
-//    @Commit
     void join() {
         Member member = new Member();
         member.setName("hello");
+        System.out.println("userService = " + userService);
         Long sasveId = userService.join(member);
 
         Member member1 = userService.findOne(sasveId).get();

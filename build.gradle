@@ -7,6 +7,13 @@ plugins {
 group = 'startspring'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
 //아래 코드를 통해 라이브러리 다운 받음
 repositories {
 	mavenCentral()
@@ -18,6 +25,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {

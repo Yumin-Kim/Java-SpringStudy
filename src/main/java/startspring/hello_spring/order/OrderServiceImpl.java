@@ -1,10 +1,15 @@
 package startspring.hello_spring.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import startspring.hello_spring.annotation.MainDiscountPolicy;
 import startspring.hello_spring.discount.DiscountPolicy;
 import startspring.hello_spring.member.Member;
 import startspring.hello_spring.member.MemberRepository;
 import startspring.hello_spring.member.MemoryMemberRepository;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
@@ -18,9 +23,12 @@ public class OrderServiceImpl implements OrderService {
 
     private DiscountPolicy discountPolicy;
 
-    public OrderServiceImpl(DiscountPolicy discountPolicy,MemberRepository memberRepository) {
+    @Autowired
+
+    public OrderServiceImpl(@MainDiscountPolicy DiscountPolicy discountPolicy, MemberRepository memberRepository) {
         this.discountPolicy = discountPolicy;
         this.memberRepository = memberRepository;
+
     }
 
 
@@ -29,5 +37,9 @@ public class OrderServiceImpl implements OrderService {
         Member findMemberId = memberRepository.findById(memberId);
         int discountPrice = discountPolicy.discount(findMemberId, itemPrice);
         return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+    //Test용
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }

@@ -36,7 +36,7 @@ public class ConfigSpring {
         this.memberRepository = memberRepository;
     }
 
-    @Bean
+    @Bean(name = "userService1")
     public UserService userService(){
         return new UserService(memberRepository);
     }
