@@ -28,6 +28,7 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private MemberStatus memberStatus;
 
+
     @ElementCollection
     @CollectionTable(
             name = "FAVORITE_FOODS",
