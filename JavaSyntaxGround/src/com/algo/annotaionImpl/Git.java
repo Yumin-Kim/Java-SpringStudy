@@ -1,6 +1,6 @@
 package com.algo.annotaionImpl;
 
-@GitPush
+//@GitPush
 public interface Git {
     String push();
 }

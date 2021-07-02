@@ -1,0 +1,3 @@
+makeanno\GitPush.class
+makeanno\GitPushProcessor.class
+META-INF\services\javax.annotation.processing.Processor
