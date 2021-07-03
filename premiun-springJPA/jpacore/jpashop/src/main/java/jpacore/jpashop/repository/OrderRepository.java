@@ -1,6 +1,8 @@
 package jpacore.jpashop.repository;
 
+import jpacore.jpashop.api.OrderSimpleCApiCotroller;
 import jpacore.jpashop.domain.Order;
+import jpacore.jpashop.dto.SimpleOrderDto;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Criteria;
 import org.springframework.stereotype.Repository;
@@ -36,10 +38,11 @@ public class OrderRepository {
                 .setMaxResults(1000)
                 .getResultList();
     }
+
     /**
      * 동적쿼리를 생성 또는 JPQL을 생성하기 위한 JPA 표준 스팩에 기제 되어 있는 방식으로 일단 해결 향후는 MyBatis 또는 QueryDSL 사용하여 줄이기
      */
-    public List<Order> findByCriteria(OrderSearch orderSearch){
+    public List<Order> findByCriteria(OrderSearch orderSearch) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Order> cq = cb.createQuery(Order.class);
         Root<Order> o = cq.from(Order.class);
@@ -60,4 +63,37 @@ public class OrderRepository {
         return orderTypedQuery.getResultList();
     }
 
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery("select o from Order o " + "join fetch o.member m " + " join fetch o.delivery d ", Order.class).getResultList();
+    }
+
+    public List<SimpleOrderDto> findOrderDtos() {
+        return em.createQuery(
+                "select new jpacore.jpashop.dto.SimpleOrderDto(o.id,m.name,o.orderStatus, d.address, o.orderDate)" +
+                        " from Order o" +
+                        " join o.member m" +
+                        " join o.delivery d", SimpleOrderDto.class
+        ).getResultList();
+    }
+
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                "select distinct o from Order o " +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i",
+                Order.class).getResultList();
+    }
+
+
+    public List<Order> findAllOrderDtos(int limit, int offset) {
+        return em.createQuery(
+                "select o from Order o " +
+                        "join fetch o.member m " +
+                        " join fetch o.delivery d ", Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
 }
