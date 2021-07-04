@@ -1,8 +1,11 @@
 package com.algo.data;
 
 
+import lombok.Data;
+
 import java.util.Optional;
 
+@Data
 public class InnerClass {
     private String title;
     private Long id;

@@ -12,7 +12,6 @@ public class InnerClassFactory {
 
         Other.AnotherTo anotherTo1 = new Other().new AnotherTo();
         Other.AnotherTo anotherTo2 = new Other().new AnotherTo();
-        another1.this.
         System.out.println(false);
 
     }

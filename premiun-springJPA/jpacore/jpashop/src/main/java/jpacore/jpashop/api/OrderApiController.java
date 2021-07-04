@@ -6,6 +6,10 @@ import jpacore.jpashop.domain.OrderItem;
 import jpacore.jpashop.domain.OrderStatus;
 import jpacore.jpashop.repository.OrderRepository;
 import jpacore.jpashop.repository.OrderSearch;
+import jpacore.jpashop.repository.order.OrderFlatDto;
+import jpacore.jpashop.repository.order.OrderItemQueryDto;
+import jpacore.jpashop.repository.order.OrderQueryDto;
+import jpacore.jpashop.repository.order.OrderQueryRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +17,17 @@ import org.springframework.web.bind.annotation.*;
 import javax.websocket.server.PathParam;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 @RestController
 @RequiredArgsConstructor
 public class OrderApiController {
 
     private final OrderRepository orderRepository;
+    private final OrderQueryRepository orderQueryRepository;
 
     @GetMapping("/api/v1/orders")
     public List<Order> orderV1() {
@@ -39,7 +47,7 @@ public class OrderApiController {
         List<Order> byCriteria = orderRepository.findByCriteria(new OrderSearch());
         return byCriteria.stream()
                 .map(OrderDto::new)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     @GetMapping("/api/v3/orders")
@@ -47,20 +55,45 @@ public class OrderApiController {
         List<Order> findAllItems = orderRepository.findAllWithItem();
         return findAllItems.stream()
                 .map(OrderDto::new)
-                .collect(Collectors.toList());
+                .collect(toList());
 
     }
 
     @GetMapping("/api/v3.1/orders")
     public List<OrderDto> orderV3_1(
-            @RequestParam(value = "limit" ,defaultValue = "100") int limit,
-            @RequestParam(value = "offset" ,defaultValue = "0") int offset)
-    {
-        List<Order> allOrderDtos = orderRepository.findAllOrderDtos(limit,offset);
+            @RequestParam(value = "limit", defaultValue = "100") int limit,
+            @RequestParam(value = "offset", defaultValue = "0") int offset) {
+        List<Order> allOrderDtos = orderRepository.findAllOrderDtos(limit, offset);
         List<OrderDto> collect = allOrderDtos.stream()
                 .map(OrderDto::new)
-                .collect(Collectors.toList());
+                .collect(toList());
         return collect;
+    }
+
+    @GetMapping("/api/v4/orders")
+    public List<OrderQueryDto> orderV4() {
+        return orderQueryRepository.findOrderQuertDtos();
+    }
+
+    @GetMapping("/api/v5/orders")
+    public List<OrderQueryDto> orderV5() {
+        return orderQueryRepository.findAllByDto_optimization();
+    }
+
+    @GetMapping("/api/v6/orders")
+    public List<OrderQueryDto> orderV6() {
+        List<OrderFlatDto> flats = orderQueryRepository.findAllByDto_flat();
+        System.out.println("flats.size() = " + flats.size());
+        Map<OrderQueryDto, List<OrderItemQueryDto>> collect = flats.stream()
+                .collect(groupingBy(o -> new OrderQueryDto(o.getOrderId(), o.getName(), o.getOrderDate(), o.getOrderStatus(), o.getAddress()),
+                        mapping(o -> new OrderItemQueryDto(o.getName(), o.getOrderPrice(), o.getCount(), o.getOrderId()), toList())
+                ));
+        System.out.println("collect.size() = " + collect.size());
+        return collect.entrySet().stream()
+                .map(e -> new OrderQueryDto(e.getKey().getOrderId(),
+                        e.getKey().getName(), e.getKey().getOrderDate(), e.getKey().getOrderStatus(),
+                        e.getKey().getAddress(), e.getValue()))
+                .collect(toList());
     }
 
 
@@ -79,7 +112,7 @@ public class OrderApiController {
             this.orderDate = order.getOrderDate();
             this.orderItems = order.getOrderItems().stream()
                     .map(OrderItemDto::new)
-                    .collect(Collectors.toList());
+                    .collect(toList());
         }
 
     }
@@ -90,6 +123,7 @@ public class OrderApiController {
         private String itemName;
         private int orderPrice;
         private int count;
+
         public OrderItemDto(OrderItem orderItem) {
             this.itemName = orderItem.getItem().getName();
             this.orderPrice = orderItem.getOrderPrice();

@@ -1,5 +1,6 @@
 package jpacore.jpashop.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "orders") //
 public class Order {
     @Id
@@ -31,5 +32,9 @@ public class Order {
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
-    private DeliveryStatus deliveryStatus;
+    private OrderStatus orderStatus;
+
+    public static Order createOrder() {
+        return null;
+    }
 }
