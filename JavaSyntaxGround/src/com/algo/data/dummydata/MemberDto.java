@@ -1,6 +1,5 @@
 package com.algo.data.dummydata;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(of = "id")

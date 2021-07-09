@@ -17,12 +17,11 @@ public class Header<T> {
     private T data;
     private String description;
 
-    public void hello(){}
-    public static <T> Header<T> OK(){
-        return Header.builder()
+    public static <T> Header<T> OK(T data){
+        return (Header<T>) Header.builder()
                 .transactionTime(LocalDateTime.now())
                 .resultCode("OK")
-                .data()
+                .data(data)
                 .build();
     }
 

@@ -20,11 +20,11 @@ public class MapSetStreamTutorial {
 
         System.out.println("==================Collector.groupById ==================");
 
-        Member member1 = new Member(1, "이름1", "01010101010", "시티코드1", "시티1", 1);
-        Member member2 = new Member(2, "이름", "01010101010", "시티코드2", "시티2", 2);
-        Member member3 = new Member(3, "이름3", "01010101010", "시티코드3", "시티3", 3);
-        Member member4 = new Member(4, "이름", "01010101010", "시티코드4", "시티4", 4);
-        Member member5 = new Member(5, "이름5", "01010101010", "시티코드5", "시티5", 5);
+        Member member1 = new Member(1, "asd1", "01010101010", "asdasd", "asd", 1);
+        Member member2 = new Member(2, "asd", "01010101010", "asdasd2", "asd2", 2);
+        Member member3 = new Member(3, "asd3", "01010101010", "asdasd3", "asd3", 3);
+        Member member4 = new Member(4, "ASD", "01010101010", "asdasd4", "asd4", 4);
+        Member member5 = new Member(5, "asd5", "01010101010", "asdasd", "asd5", 5);
 
         ArrayList<Member> members = new ArrayList<>();
         members.add(member1);

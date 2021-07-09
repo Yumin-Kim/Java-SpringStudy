@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="algoTest.CategoryHash" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-09T04:55:09" hostname="DESKTOP-OQMC367" time="0.027">
+  <properties/>
+  <testcase name="프로그래머스 3번 스스로 풀기" classname="algoTest.CategoryHash" time="0.027"/>
+  <system-out><![CDATA[1
+1
+1
+answer = 0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

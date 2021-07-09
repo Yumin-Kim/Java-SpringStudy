@@ -1,0 +1,2 @@
+algoTest/CategoryHash.java
+ algoTest.CategoryHash

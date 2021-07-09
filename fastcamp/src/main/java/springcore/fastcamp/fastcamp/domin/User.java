@@ -16,11 +16,12 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "users")
+@Builder
 @Accessors(chain = true)
+//@EqualsAndHashCode
 @EntityListeners(AuditingEntityListener.class)
 public class User {
     @Id
@@ -40,6 +41,11 @@ public class User {
     @LastModifiedBy
     private String updateBy;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Job> jobs = new ArrayList<>();
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "house_id")
+    private House house;
+
 }

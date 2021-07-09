@@ -45,7 +45,19 @@ public class DBCrudTest {
                 .name("hello12")
                 .cityCode("city12")
                 .build();
-        userRepository.save(buildUser1);
+
+        User saveUser = userRepository.save(buildUser1);
+        System.out.println("saveUser = " + saveUser);
+        System.out.println("buildUser1 = " + buildUser1);
+        System.out.println("buildUser2 = " + buildUser2);
+        System.out.println("saveUser.equals(buildUser1) = " + saveUser.equals(buildUser1));
+        System.out.println("saveUser.equals(buildUser1) = " + saveUser.equals(buildUser2));
+        System.out.println("buildUser1.equals(buildUser2) = " + buildUser1.equals(buildUser2));
+        System.out.println("(buildUser1 == buildUser2) = " + (buildUser1 == buildUser2));
+        System.out.println("(buildUser1 == saveUser) = " + (buildUser1 == saveUser));
+        System.out.println("saveUser.hashCode() = " + saveUser.hashCode());
+        System.out.println("buildUser1.hashCode() = " + buildUser1.hashCode());
+        System.out.println("buildUser2.hashCode() = " + buildUser2.hashCode());
         userRepository.save(buildUser2);
     }
 

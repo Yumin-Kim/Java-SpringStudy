@@ -20,6 +20,11 @@ public class HelloController {
         return id + Integer.toString(pwd) + "     " + name;
     }
 
+    @PostMapping("/test")
+    public String postMapping(){
+        return "Hello";
+    }
+
     @GetMapping("/header")
     public Header getHeader() {
         return Header.builder()

@@ -2,7 +2,7 @@ package com.algo.di;
 
 public class DIcontainerIml {
     public void loadDIcontainer(){
-        System.out.println("==================리플랙션을 활용한 DI 개발하보기 ==================");
+        System.out.println("==================reflection To DI ==================");
         try {
             System.out.println("DI Start point");
             BookService bookService = ContainerService.getObject(BookService.class);
