@@ -1,0 +1,1 @@
+insert into users (`id` , `name` , `city_code` ) value (1,'yumin','test_city');

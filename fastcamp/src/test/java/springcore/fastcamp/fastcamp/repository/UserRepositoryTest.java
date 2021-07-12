@@ -1,18 +1,18 @@
 package springcore.fastcamp.fastcamp.repository;
 
+import org.hibernate.validator.internal.util.privilegedactions.LoadClass;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
-import springcore.fastcamp.fastcamp.domin.Address;
-import springcore.fastcamp.fastcamp.domin.House;
-import springcore.fastcamp.fastcamp.domin.Job;
-import springcore.fastcamp.fastcamp.domin.User;
+import springcore.fastcamp.fastcamp.domin.*;
+import springcore.fastcamp.fastcamp.dto.UserInfoDto;
 
 import javax.persistence.EntityManager;
 import java.awt.*;
 import java.lang.reflect.Member;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
 import java.util.function.Predicate;
@@ -27,6 +27,54 @@ public class UserRepositoryTest {
     private JobRepository jobRepository;
     @Autowired
     private EntityManager em;
+
+    @Test
+    @DisplayName("User 엔티티에서의 월,일별로 회원 찾기")
+    @Transactional
+    @Rollback(value = false)
+    void findMemberBirth() throws Exception{
+        //given
+        makeUser();
+        //when
+        List<User> byBirthMouthOfBirth = userRepository.findByBirthMouthOfBirth(10);
+        List<User> byBirthDayOfBirth = userRepository.findByBirthDayOfBirth(3);
+        List<User> byMouthOfBirth = userRepository.findByMouthOfBirth(10);
+        //then
+        Assertions.assertNotNull(byBirthMouthOfBirth);
+        Assertions.assertNotNull(byBirthDayOfBirth);
+        Assertions.assertNotNull(byMouthOfBirth);
+        assertThat(byBirthMouthOfBirth.size()).isEqualTo(4);
+        assertThat(byMouthOfBirth.size()).isEqualTo(4);
+    }
+
+    private void makeUser() {
+        User createUser1 = User.builder()
+                .name("name1")
+                .cityCode("cityCode")
+                .birth(new Birth(LocalDate.of(2020,10,10)))
+                .build();
+        User createUser4 = User.builder()
+                .name("name4")
+                .cityCode("cityCode")
+                .birth(new Birth(LocalDate.of(1991, 10, 31)))
+                .build();
+        User createUser5 = User.builder()
+                .name("name5")
+                .cityCode("cityCode")
+                .birth(new Birth(LocalDate.of(1991, 10, 31)))
+                .build();
+        User createUser6 = User.builder()
+                .name("name6")
+                .cityCode("cityCode")
+                .birth(new Birth(1993, 10, 6))
+                .build();
+
+
+        userRepository.save(createUser1);
+        userRepository.save(createUser5);
+        userRepository.save(createUser6);
+        userRepository.save(createUser4);
+    }
 
     @Test
     @DisplayName("orphanRemoval = true")
@@ -164,6 +212,48 @@ public class UserRepositoryTest {
             return null;
         });
         assertThat(all.size()).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("사용자 삭제(deleted 멤버 요소를 기반으로 삭제 후 삭제된 정보 확인 쿼리 생성")
+    @Transactional
+    @Rollback(value = false)
+    void deleteUserTest() throws Exception{
+        //given
+        makeUser();
+        User name1 = userRepository.findByName("name1");
+        UserInfoDto userInfoDto = new UserInfoDto();
+        userInfoDto.setDeleted(true);
+        //when
+        name1.updateUserEntity(userInfoDto);
+        userRepository.save(name1);
+        //then
+        assertThat(name1.isDeleted()).isEqualTo(true);
+    }
+
+    @Test
+    @DisplayName("isDeleted false 확인")
+    @Transactional
+    @Rollback(value = false)
+    void isDeletedFindAll_Test() throws Exception{
+        //given
+        List<User> allUses = userRepository.findAll();
+        //when
+        System.out.println("allUses.size() = " + allUses.size());
+        //then
+    }
+
+    @Test
+    @DisplayName("update")
+    @Transactional
+    @Rollback(value = false)
+    void modifyUserInfo() throws Exception{
+        //given
+        User name1 = userRepository.findByName("name1");
+
+        //when
+
+        //then
     }
 
 }

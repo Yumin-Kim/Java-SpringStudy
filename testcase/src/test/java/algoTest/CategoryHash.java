@@ -106,6 +106,7 @@ public class CategoryHash {
     void programmersHash_4() throws Exception{
         //given
 
+
         //when
 
         //then
