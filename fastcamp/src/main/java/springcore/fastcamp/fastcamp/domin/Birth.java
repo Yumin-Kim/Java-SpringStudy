@@ -16,11 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Birth {
     private int yearOfBirth;
-    @Min(value = 1)
-    @Max(value = 12)
     private int mouthOfBirth;
-    @Min(value = 1)
-    @Max(value = 30)
     private int dayOfBirth;
 
     public Birth(LocalDate localDate) {
@@ -28,4 +24,11 @@ public class Birth {
         this.dayOfBirth = localDate.getDayOfMonth();
         this.mouthOfBirth = localDate.getMonthValue();
     }
+
+
+
+    public static Birth of(LocalDate birthday) {
+        return new Birth(birthday);
+    }
+
 }
