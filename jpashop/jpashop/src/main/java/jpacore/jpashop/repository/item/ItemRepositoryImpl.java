@@ -29,7 +29,7 @@ public class ItemRepositoryImpl implements ItemRepository{
         Method[] declaredMethods = updateItemDto.getClass().getDeclaredMethods();
         Arrays.stream(declaredMethods)
                 .forEach(declaredMethod->{
-                    declaredMethod.getName().equals("get")
+                    declaredMethod.getName().equals("get");
                 });
         return null;
     }

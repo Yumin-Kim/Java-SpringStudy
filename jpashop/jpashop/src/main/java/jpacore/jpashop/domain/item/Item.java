@@ -30,4 +30,10 @@ public abstract class Item {
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
+    Item(String name, int stockPrice, String company) {
+        this.name = name;
+        this.stockPrice = stockPrice;
+        this.company = company;
+    }
+
 }

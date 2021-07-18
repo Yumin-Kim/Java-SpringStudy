@@ -1,12 +1,15 @@
 package jpacore.jpashop.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Delivery {
     @Id
     @GeneratedValue
