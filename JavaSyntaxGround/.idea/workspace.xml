@@ -5,211 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58f63f67-9d9f-4079-b73b-346ca533f8e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries-with-intellij-classes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/House.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/repository/HouseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/MockMVCTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/annotaionImpl/Git.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/annotaionImpl/GitBash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/bfsanddfs/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/bfsanddfs/book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/InnerClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/MapSetStreamTutorial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/OuterClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/OuterIdClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/Progress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/Teacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/TestHOF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/abstractdata/CarInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/abstractdata/ImplClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/abstractdata/MiddleSizeCarAbstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/dto/MemberAddressDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/dto/MemberFlatDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/dto/MemberQueryDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/dummydata/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/dummydata/MemberAddress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/data/dummydata/MemberDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/ContainerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/DIcontainerIml.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/Inject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/refiection/DtoClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/refiection/FindClassInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/refiection/GetSetFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/di/refiection/MemberEntitiy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/enumtest/OrderType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/greedy/test01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/java8sytax/FunctioInInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/java8sytax/MainRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/proxy/DelegateProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/proxy/ImplClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/syntax/ArraysSyntax.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/syntax/Ch01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/syntax/Ch02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/syntax/CollectionMD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/syntax/ListSyntax.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/syntax/MapSyntax.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/syntax/SetSyntax.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/whiteship/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/whiteship/InnerClassFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/whiteship/MyBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/whiteship/Other.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/whiteship/StreamAndOptional.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../testcase/src/main/java/whiteship/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Abstract_Factory_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Abstract_Factory_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Abstract_Factory_Pattern_Module/BikeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Abstract_Factory_Pattern_Module/BikeFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Abstract_Factory_Pattern_Module/Body.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Abstract_Factory_Pattern_Module/Body.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Abstract_Factory_Pattern_Module/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Abstract_Factory_Pattern_Module/Wheel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Abstract_Factory_Pattern_UsedProduct/SamBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Abstract_Factory_Pattern_UsedProduct/SamBody.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Abstract_Factory_Pattern_UsedProduct/SamFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Abstract_Factory_Pattern_UsedProduct/SamFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Abstract_Factory_Pattern_UsedProduct/SamWheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Abstract_Factory_Pattern_UsedProduct/SamWheel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Adapter_Pattern/Adapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Adapter_Pattern/Adapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Adapter_Pattern/AdapterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Adapter_Pattern/AdapterImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Adapter_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Adapter_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Adapter_Pattern/UsedClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Adapter_Pattern/UsedClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Bridge_Pattern/DefaultMSF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Bridge_Pattern/DefaultMSF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Bridge_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Bridge_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Bridge_Pattern/MorseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Bridge_Pattern/MorseCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Bridge_Pattern/MorseCodeFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Bridge_Pattern/MorseCodeFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Bridge_Pattern/PrintMorseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Bridge_Pattern/PrintMorseCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Bridge_Pattern/SoundMSF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Bridge_Pattern/SoundMSF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern/BluePrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern/BluePrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern/ComputerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern/ComputerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern/LgGramBluePrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern/LgGramBluePrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern_EX/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern_EX/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern_EX/ComputerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern_EX/ComputerBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Builder_Pattern_EX/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Builder_Pattern_EX/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility/PlusCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility/PlusCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility/SubCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility/SubCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility_Advanced/Amor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility_Advanced/Amor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility_Advanced/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility_Advanced/Attack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility_Advanced/Defense.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility_Advanced/Defense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/ChainOfResposibility_Advanced/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/ChainOfResposibility_Advanced/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Command_Pattern/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Command_Pattern/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Command_Pattern/Heater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Command_Pattern/Heater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Command_Pattern/HeaterOnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Command_Pattern/HeaterOnCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Command_Pattern/Lamp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Command_Pattern/Lamp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Command_Pattern/LampOnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Command_Pattern/LampOnCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Command_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Command_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Command_Pattern/OkGoogle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Command_Pattern/OkGoogle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Composite_Pattern/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Composite_Pattern/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Composite_Pattern/FileSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Composite_Pattern/FileSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Composite_Pattern/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Composite_Pattern/Folder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Composite_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Composite_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Decorator_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Decorator_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Decorator_Pattern/abst/AbstAdding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Decorator_Pattern/abst/AbstAdding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Decorator_Pattern/abst/IBeverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Decorator_Pattern/abst/IBeverage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Decorator_Pattern/abst/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Decorator_Pattern/abst/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Decorator_Pattern/concrete/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Decorator_Pattern/concrete/Base.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Decorator_Pattern/concrete/Esoresso.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Decorator_Pattern/concrete/Esoresso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Decorator_Pattern/concrete/Milk.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Decorator_Pattern/concrete/Milk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/Coolear.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/Coolear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/Magnetron.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/Magnetron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/MicrowaveFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/MicrowaveFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/Mode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/Mode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/Switch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/Switch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/TimeChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/TimeChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Facade_Pattern/Turntable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Facade_Pattern/Turntable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Factory_Method_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Factory_Method_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Factory_Method_Pattern_Concrete_EX/HpCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Factory_Method_Pattern_Concrete_EX/HpCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Factory_Method_Pattern_Concrete_EX/HpPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Factory_Method_Pattern_Concrete_EX/HpPotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Factory_Method_Pattern_Concrete_EX/MpCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Factory_Method_Pattern_Concrete_EX/MpCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Factory_Method_Pattern_Concrete_EX/MpPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Factory_Method_Pattern_Concrete_EX/MpPotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Factory_Method_Pattern_InnerFramework/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Factory_Method_Pattern_InnerFramework/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Factory_Method_Pattern_InnerFramework/ItemCreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Factory_Method_Pattern_InnerFramework/ItemCreater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Flyweight_Pattern/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Flyweight_Pattern/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Flyweight_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Flyweight_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Flyweight_Pattern/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Flyweight_Pattern/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Flyweight_Pattern/ShapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Flyweight_Pattern/ShapeFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Mediator_Pattern/ChatColleague.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Mediator_Pattern/ChatColleague.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Mediator_Pattern/ChatMediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Mediator_Pattern/ChatMediator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Mediator_Pattern/Contract/Colleague.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Mediator_Pattern/Contract/Colleague.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Mediator_Pattern/Contract/Mediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Mediator_Pattern/Contract/Mediator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Mediator_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Mediator_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Memento_Pattern/CareTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Memento_Pattern/CareTaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Memento_Pattern/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Memento_Pattern/Information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Memento_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Memento_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Memento_Pattern/Memento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Memento_Pattern/Memento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Memento_Pattern/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Memento_Pattern/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern/Button.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern_Advanced2/AnnalSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern_Advanced2/AnnalSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern_Advanced2/EventSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern_Advanced2/EventSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern_Advanced2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern_Advanced2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern_Advanced2/NewMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern_Advanced2/NewMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern_Advanced2/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern_Advanced2/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Observer_Pattern_Advanced2/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Observer_Pattern_Advanced2/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Prototype_Pattern/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Prototype_Pattern/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Prototype_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Prototype_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Prototype_Pattern/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Prototype_Pattern/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Proxy_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Proxy_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Proxy_Pattern/Proxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Proxy_Pattern/Proxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Proxy_Pattern/Real_Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Proxy_Pattern/Real_Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Proxy_Pattern/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Proxy_Pattern/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Singleton_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Singleton_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Singleton_Pattern/singlePattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Singleton_Pattern/singlePattern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/State_Pattern/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/State_Pattern/Light.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/State_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/State_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/State_Pattern/OffState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/State_Pattern/OffState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/State_Pattern/OnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/State_Pattern/OnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/State_Pattern/SleepState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/State_Pattern/SleepState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/State_Pattern/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/State_Pattern/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Stategy_Pattern/Aobj.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Stategy_Pattern/Aobj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Stategy_Pattern/Bobj.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Stategy_Pattern/Bobj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Stategy_Pattern/Cobj.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Stategy_Pattern/Cobj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Stategy_Pattern/ContactClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Stategy_Pattern/ContactClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Stategy_Pattern/Istategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Stategy_Pattern/Istategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Stategy_Pattern/S_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Stategy_Pattern/S_Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Stategy_Pattern/StrateegyPattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Stategy_Pattern/StrateegyPattern.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Template_Method_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Template_Method_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Template_Method_Pattern_UsedClass/AbstTemplateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Template_Method_Pattern_UsedClass/AbstTemplateHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Template_Method_Pattern_UsedClass/DefaultTemplateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Template_Method_Pattern_UsedClass/DefaultTemplateHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Visitor_Pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Visitor_Pattern/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Visitor_Pattern/Vistable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Visitor_Pattern/Vistable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Visitor_Pattern/VistableA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Visitor_Pattern/VistableA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Visitor_Pattern/Vistor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Visitor_Pattern/Vistor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesignPattern/src/Visitor_Pattern/VistorA.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DesignPattern/src/main/java/Visitor_Pattern/VistorA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaSyntaxGround.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaSyntaxGround/com/algo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaSyntaxGround/com/algo/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaSyntaxGround/com/algo/data/abstractdata/MiddleSizeCarAbstract.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaSyntaxGround/com/algo/data/abstractdata/MiddleSizeCarAbstract.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algo/data/MapSetStreamTutorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algo/data/MapSetStreamTutorial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algo/data/dummydata/MemberDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algo/data/dummydata/MemberDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algo/di/DIcontainerIml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algo/di/DIcontainerIml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algo/whiteship/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algo/whiteship/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fastcamp/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/security/UserDetailsImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/security/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/security/kakao/KakaoOAuth2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/security/kakao/KakaoUserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/main/resources/static/forbidden.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/repository/ProductRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/service/ProductServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/dto/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/dto/Header.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/DBCrudTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/DBCrudTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/FastcampApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/FastcampApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/repository/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/test/java/springcore/fastcamp/fastcamp/repository/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/ProductUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/ProductUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/Timestamped.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/domin/Timestamped.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/repository/ProductUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/repository/ProductUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/restaurant/controller/RestaurtController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/restaurant/controller/RestaurtController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/service/UserSerive.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/java/springcore/fastcamp/fastcamp/service/userService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/resources/static/basic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/resources/static/basic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fastcamp/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fastcamp/src/main/resources/static/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,17 +49,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="JavaSyntaxGround" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="JavaSyntaxGround" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -267,7 +77,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testcase" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">

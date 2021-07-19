@@ -6,13 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import springcore.fastcamp.fastcamp.dto.SignupRequestDto;
-import springcore.fastcamp.fastcamp.service.UserSerive;
 
 @Controller
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserSerive userService;
+    private final springcore.fastcamp.fastcamp.service.userService userService;
 
     // 회원 로그인 페이지
     @GetMapping("/user/login")
@@ -36,6 +35,17 @@ public class UserController {
     @PostMapping("/user/signup")
     public String registerUser(SignupRequestDto requestDto) {
         userService.registerUser(requestDto);
+        return "redirect:/";
+    }
+
+    @GetMapping("/user/forbidden")
+    public String forbidden() {
+        return "forbidden";
+    }
+
+    @GetMapping("/user/kakao/callback")
+    public String kakaoLogin(String code){
+        userService.kakaoLogin(code);
         return "redirect:/";
     }
 }

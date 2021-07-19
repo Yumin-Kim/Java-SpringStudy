@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface ProductUserRepository extends JpaRepository<ProductUser,Long> {
 
     Optional<ProductUser> findByname(String username);
+
+    Optional<ProductUser> findByKakaoId(Long kakaoId);
 }

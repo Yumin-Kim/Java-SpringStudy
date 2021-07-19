@@ -1,2 +1,12 @@
+testcodelecture/StudyTest.java
+ testcodelecture.StudyTest
 algoTest/CategoryHash.java
  algoTest.CategoryHash
+testcodelecture/AssertionLecture.java
+ testcodelecture.AssertionLecture
+testcodelecture/Study.java
+ testcodelecture.Study
+testcodelecture/StudyStatus.java
+ testcodelecture.StudyStatus
+testcodelecture/ConditionTestCase.java
+ testcodelecture.ConditionTestCase
