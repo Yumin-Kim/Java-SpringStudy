@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="mockito_testcase.MockitoFindObject" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-20T05:31:16" hostname="DESKTOP-OQMC367" time="0.443">
+  <properties/>
+  <testcase name="다른 사용자가 볼 수 있도록 스터디를 공개한다." classname="mockito_testcase.MockitoFindObject" time="0.443"/>
+  <system-out><![CDATA[Open Study Class
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

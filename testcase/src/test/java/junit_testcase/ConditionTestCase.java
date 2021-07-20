@@ -1,4 +1,4 @@
-package testcodelecture;
+package junit_testcase;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledOnOs;
