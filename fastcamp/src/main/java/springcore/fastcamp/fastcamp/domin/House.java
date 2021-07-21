@@ -1,5 +1,6 @@
 package springcore.fastcamp.fastcamp.domin;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Table(name = "Houses")
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class House {
 
@@ -19,6 +20,9 @@ public class House {
     private String name;
 
     private Address address;
+
+    @OneToOne(mappedBy = "house", fetch = FetchType.LAZY)
+    private User user;
 
     @Builder
     public House(String name, Address address, int houseSize) {

@@ -33,7 +33,7 @@ public class ProductUser extends Timestamped {
     private Long kakaoId;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productUser")
+    @OneToMany(mappedBy = "productUser")
     private List<Product> products = new ArrayList<>();
 
     public ProductUser(String name, String password, String email, UserRole role) {
@@ -50,6 +50,14 @@ public class ProductUser extends Timestamped {
         this.email = email;
         this.role = role;
         this.kakaoId = kakaoId;
+    }
+
+    public ProductUser(Long userId, String hello, String helo, String helo1, UserRole userRole) {
+        this.name = hello;
+        this.password = helo1;
+        this.email = helo;
+        this.role = userRole;
+        this.id = userId;
     }
 }
 

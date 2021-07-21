@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Table(name = "jobs")
@@ -22,7 +22,7 @@ public class  Job {
     @Embedded
     private Address address;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL )
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 }

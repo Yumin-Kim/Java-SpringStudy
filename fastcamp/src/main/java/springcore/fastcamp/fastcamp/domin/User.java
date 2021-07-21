@@ -13,6 +13,8 @@ import springcore.fastcamp.fastcamp.dto.UserInfoDto;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ import java.util.List;
 @Entity
 @Getter
 //@Setter(value = AccessLevel.PRIVATE)
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Setter
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "users")
@@ -47,13 +49,13 @@ public class User {
     @LastModifiedBy
     private String updateBy;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user")
     private List<Job> jobs = new ArrayList<>();
 
     @Embedded
     private Birth birth;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "house_id")
     private House house;
 

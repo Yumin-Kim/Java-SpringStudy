@@ -113,41 +113,81 @@ public class UserRepositoryTest {
     @Test
     @DisplayName("일대일 관계 CRUD")
     @Transactional
-//    @Rollback(value = false)
+    @Rollback(value = false)
     void OneToOneCRUD() throws Exception{
         //given
-        Address address = new Address("city_Code", "city_city");
-        House createHouse = House.builder()
-                .houseSize(1000)
-                .name("아파트1")
-                .address(address)
-                .build();
-        User createUser = User.builder()
-                .name("name12")
-                .cityCode("cityCode")
-                .house(createHouse)
-                .build();
-        Job development = Job.builder()
-                .address(address)
-                .name("development")
-                .price(3000)
-                .user(createUser)
-                .build();
-        jobRepository.save(development);
-        User name12 = userRepository.findByName("name12");
-        User name11 = userRepository.findByName("name12");
-        System.out.println("name12 = " + name12.getName()+name12);
-        System.out.println("createUser.getName() = " + name11.getName()+name11);
-        Set<User> userHashMap = new HashSet<>();
-        userHashMap.add(name12);
-        userHashMap.add(createUser);
-        HashMap<Integer, Integer> numberHash = new HashMap<>();
-        numberHash.put(1, 1);
-        numberHash.put(2, 1);
-        
-        int size = userHashMap.size();
-        System.out.println("size = " + size);
-        System.out.println("numberHash.size() = " + numberHash.size());
+//        Address address = new Address("city_Code", "city_city");
+//        Birth of = Birth.of(LocalDate.of(2022, 12, 12));
+//        House createHouse = House.builder()
+//                .houseSize(1000)
+//                .name("아파트1")
+//                .address(address)
+//                .build();
+//        User createUser = User.builder()
+//                .name("name12")
+//                .cityCode("cityCode")
+//                .house(createHouse)
+//                .build();
+//        Job development = Job.builder()
+//                .address(address)
+//                .name("development")
+//                .price(3000)
+//                .user(createUser)
+//                .build();
+////        em.persist(development);
+//        createUser.setBirth(of);
+//        userRepository.save(createUser);
+//        em.persist(development);
+//        em.flush();
+//        em.clear();
+
+//        List<User> select_u_from_user_u = em.createQuery("select u from User u join fetch u.house", User.class).getResultList();
+//        select_u_from_user_u.stream()
+//                .forEach(data->{
+//                    String name = data.getHouse().getName();
+//                    System.out.println("name = " + name);
+//                });
+//        House user = em.find(House.class, 15L);
+        House referenceHouse = em.getReference(House.class, 15L);
+        System.out.println("referenceHouse = " + referenceHouse);
+        System.out.println("referenceHouse.getClass() = " + referenceHouse.getClass());
+        System.out.println("referenceHouse.getName() = " + referenceHouse.getName());
+//        System.out.println("name = " + user.getHouseSize());
+        em.flush();
+        em.clear();
+        User proxyUser = em.getReference(User.class, 9L);
+        System.out.println("proxyUser.getClass() = " + proxyUser.getClass());
+        System.out.println("proxyUser.getId() = " + proxyUser.getId());
+        Job job = proxyUser.getJobs().get(0);
+        System.out.println("proxyUser.getName() = " +job.getName() );
+        em.flush();
+        em.clear();
+        User user1 = em.find(User.class, 9L);
+        User proxyUser1 = em.getReference(User.class, 9L);
+        System.out.println("proxyUser.getClass() = " + proxyUser1.getClass());
+        System.out.println("proxyUser.getId() = " + proxyUser1.getId());
+        System.out.println("proxyUser.getName() = " + proxyUser1.getName());
+
+        //
+//        em.clear();
+//        House house = em.find(House.class, 15L);
+//        System.out.println("house.getUser().getName() = " + house);
+
+
+//        User name12 = userRepository.findByName("name12");
+//        User name11 = userRepository.findByName("name12");
+//        System.out.println("name12 = " + name12.getName()+name12);
+//        System.out.println("createUser.getName() = " + name11.getName()+name11);
+//        Set<User> userHashMap = new HashSet<>();
+//        userHashMap.add(name12);
+//        userHashMap.add(createUser);
+//        HashMap<Integer, Integer> numberHash = new HashMap<>();
+//        numberHash.put(1, 1);
+//        numberHash.put(2, 1);
+//
+//        int size = userHashMap.size();
+//        System.out.println("size = " + size);
+//        System.out.println("numberHash.size() = " + numberHash.size());
     }
 
     @Transactional

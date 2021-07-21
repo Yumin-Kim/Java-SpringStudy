@@ -16,7 +16,7 @@ junit_testcase/Study.java
  junit_testcase.Study
 mockito_testcase/StartMockito.java
  mockito_testcase.StartMockito
-mockito_testcase/MockitoFindObject.java
- mockito_testcase.MockitoFindObject
 mockito_testcase/MockStubbingTestCase.java
  mockito_testcase.MockStubbingTestCase
+mockito_testcase/MockitoFindObject.java
+ mockito_testcase.MockitoFindObject

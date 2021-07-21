@@ -10,13 +10,13 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
 public class ProductRepository {
 
     private final EntityManager em;
-
     public List<Product> getProducts() {
         List<Product> findAllProduct = em.createQuery(
                 "select p from Product p  " +
@@ -51,6 +51,11 @@ public class ProductRepository {
         Product product = em.find(Product.class, id);
         product.setMyprice(myprice);
         product.setModifiedAt(LocalDateTime.now());
+    }
+
+    public Optional<Product> findById(Long productId) {
+        Product product = em.find(Product.class, productId);
+        return Optional.ofNullable(product);
     }
 }
 
