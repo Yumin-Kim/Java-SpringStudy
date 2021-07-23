@@ -173,4 +173,19 @@ class MemberJpaRepositoryTest {
         assertEquals(findLimitMembers.size() , 2);
     }
 
+    @Test
+    @DisplayName("JPA를 통해서 벌크 연산 쿼리 실행")
+    void start_9() throws Exception{
+        //given
+        memberJpaRepository.save(new Member("MemberA", 19));
+        memberJpaRepository.save(new Member("MemberB", 18));
+        memberJpaRepository.save(new Member("MemberC", 11));
+        memberJpaRepository.save(new Member("MemberD", 12));
+        memberJpaRepository.save(new Member("MemberE", 15));
+        //when
+        int bulkAgePlusMember = memberJpaRepository.bulkAgePlus(15);
+        //then
+        assertEquals(3,bulkAgePlusMember);
+    }
+
 }
