@@ -2,6 +2,7 @@ package jpacore.jpashop.domain;
 
 import jpacore.jpashop.dto.UpdateUserInfo;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,12 +12,14 @@ import java.util.*;
 @Getter
 @Entity
 @NoArgsConstructor(access =  AccessLevel.PROTECTED)
+@Builder
 public class Member {
     @GeneratedValue
     @Id
     @Column(name = "member_id")
     private Long id;
-    @Embedded//
+
+    @Embedded
     private Address address;
 
     @OneToMany(mappedBy = "member")
@@ -27,13 +30,14 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private MemberStatus memberStatus;
-
-
+    /////////////////////
+    /////////////////////컬렉션 엔티티
     @ElementCollection
     @CollectionTable(
             name = "FAVORITE_FOODS",
             joinColumns = @JoinColumn(name = "member_id")
     )
+
     @Column(name = "food_name")
     private Set<String> favoritefoods = new HashSet<>();
 
@@ -43,6 +47,8 @@ public class Member {
             joinColumns = @JoinColumn(name = "member_id")
     )
     private List<Address> history = new ArrayList<>();
+
+    /////////////////////
 
     Member(Address address, MemberStatus memberStatus) {
         this.address = address;

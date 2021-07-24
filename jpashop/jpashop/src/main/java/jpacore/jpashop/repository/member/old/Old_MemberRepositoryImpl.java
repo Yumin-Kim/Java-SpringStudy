@@ -1,16 +1,14 @@
-package jpacore.jpashop.repository.member;
+package jpacore.jpashop.repository.member.old;
 
 import jpacore.jpashop.dto.UpdateUserInfo;
 import jpacore.jpashop.dto.user.DtoUserSearchInfo;
 import jpacore.jpashop.domain.Member;
+import jpacore.jpashop.repository.member.old.Old_MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Lock;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.LockModeType;
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +16,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class MemberRepositoryImpl implements MemberRepository {
+public class Old_MemberRepositoryImpl implements Old_MemberRepository {
 
     @Autowired
     private EntityManager em;

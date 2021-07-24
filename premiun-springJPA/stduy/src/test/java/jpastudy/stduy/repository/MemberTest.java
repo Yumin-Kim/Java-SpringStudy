@@ -4,6 +4,10 @@ import jpastudy.stduy.domain.Member;
 import jpastudy.stduy.domain.Team;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.BDDMockito.given;
 
 @SpringBootTest
 @Transactional
@@ -19,6 +27,9 @@ public class MemberTest {
 
     @PersistenceContext
     EntityManager em;
+
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test
     @DisplayName("엔티티 테스트 코드")
@@ -53,6 +64,29 @@ public class MemberTest {
                     System.out.println("******member.getTeam() = " + member.getTeam());
                 });
 
+    }
+
+
+    @Test
+    @DisplayName("Auditing 기능 ")
+    void start_2() throws Exception{
+        //given
+        Member newMember = new Member("Hello");
+        memberRepository.save(newMember); //@PrePersist 발생
+
+        Thread.sleep(1000);
+        newMember.setUsername("UserName");
+
+        em.flush();
+        em.clear();
+        //when
+        Optional<Member> findMember = memberRepository.findById(newMember.getId());
+        findMember.ifPresent(data->{
+            System.out.println(data.toString());
+            System.out.println(data.getCreateDate());
+            System.out.println(data.getLastModifiedDate() );
+        });
+        //then
     }
 
 

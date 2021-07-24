@@ -4,9 +4,7 @@ import jpacore.jpashop.domain.Address;
 import jpacore.jpashop.domain.Coupon;
 import jpacore.jpashop.domain.CouponMember;
 import jpacore.jpashop.domain.Member;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.JpaRepository;
+import jpacore.jpashop.repository.member.old.Old_MemberRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,12 +13,12 @@ import java.util.Arrays;
 public class DummyUserFectory {
 
     private final EntityManager em;
-    private final MemberRepository memberRepository;
+    private final Old_MemberRepository oldMemberRepository;
 
 
-    public DummyUserFectory(EntityManager entityManager , MemberRepository memberRepository) {
+    public DummyUserFectory(EntityManager entityManager , Old_MemberRepository oldMemberRepository) {
         this.em = entityManager;
-        this.memberRepository = memberRepository;
+        this.oldMemberRepository = oldMemberRepository;
     }
 
     public void insertUsers(int countUser) {
@@ -44,7 +42,7 @@ public class DummyUserFectory {
     public Member setMember(String city, String street, String cityCode) {
         Address address = Address.createAddress(city, street, cityCode);
         Member member = Member.createMember(address);
-        memberRepository.save(member);
+        oldMemberRepository.save(member);
         return member;
     }
 

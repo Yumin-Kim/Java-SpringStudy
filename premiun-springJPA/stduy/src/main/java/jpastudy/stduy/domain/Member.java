@@ -1,16 +1,20 @@
 package jpastudy.stduy.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * DTO 생성시 Entity를 인자값으로 받아서 생성해도 무관
+ */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
 @NamedEntityGraph(name = "Member.all" , attributeNodes = @NamedAttributeNode("team"))
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -23,6 +27,7 @@ public class Member {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "team_id")
+    @JsonIgnore
     private Team team;
 
     public Member(String name) {

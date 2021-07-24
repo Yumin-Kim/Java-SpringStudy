@@ -4,6 +4,7 @@ import jpacore.jpashop.domain.Address;
 import jpacore.jpashop.domain.Delivery;
 import jpacore.jpashop.domain.DeliveryStatus;
 import jpacore.jpashop.domain.Order;
+import jpacore.jpashop.repository.order.old.Old_OrderRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 class OrderRepositoryImplTest {
 
     @Autowired
-    OrderRepository orderRepository;
+    Old_OrderRepository orderRepository;
 
     @Test
     @DisplayName("주문 정보 저장")

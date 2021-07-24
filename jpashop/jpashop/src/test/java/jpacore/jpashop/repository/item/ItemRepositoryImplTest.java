@@ -4,22 +4,21 @@ import jpacore.jpashop.domain.item.Album;
 import jpacore.jpashop.domain.item.Book;
 import jpacore.jpashop.domain.item.Item;
 import jpacore.jpashop.domain.item.Movie;
+import jpacore.jpashop.repository.item.old.Old_ItemRepositoryImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ItemRepositoryImplTest {
 
     @Autowired
-    private ItemRepositoryImpl itemRepository;
+    private Old_ItemRepositoryImpl itemRepository;
 
     @Test
     @DisplayName("아이템 정보 저장")

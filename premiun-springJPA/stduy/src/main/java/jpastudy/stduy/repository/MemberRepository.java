@@ -2,6 +2,10 @@ package jpastudy.stduy.repository;
 
 import jpastudy.stduy.domain.Member;
 import jpastudy.stduy.domain.dto.MemberDto;
+import jpastudy.stduy.repository.custom.MemberRepositoryCustom;
+import jpastudy.stduy.repository.custom.UsernameOnly;
+import jpastudy.stduy.repository.dto.ProjectinosMemberDto;
+import jpastudy.stduy.repository.dto.ProjectionsDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -13,7 +17,7 @@ import java.lang.annotation.Retention;
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepository extends JpaRepository<Member, Long> , MemberRepositoryCustom {
     List<Member> findByUsernameAndAgeGreaterThan(String username, int age);
 
     @Query("select m from Member m where m.username = :name")
@@ -62,4 +66,18 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     @QueryHints(value = @QueryHint(name = "org.hibernate.readOnly", value = "true"))
     Member findReadOnlyByUsername(String name);
+
+    // TODO Projections
+    List<UsernameOnly> findProjectionsByUsername(String username);
+
+    List<ProjectinosMemberDto> findProjectionsReturnDtoByUsernameAndAge(String username, int age);
+
+    //Native query
+    @Query(
+            value = "select m.username , t.name as teamName from member m left join team t ",
+            countQuery = "select count(*) from member",
+            nativeQuery = true
+    )
+    Page<ProjectionsDto> findByPageProjections(Pageable pageable);
+
 }

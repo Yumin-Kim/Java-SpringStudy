@@ -3,6 +3,9 @@ package jpastudy.stduy.repository;
 import jpastudy.stduy.domain.Member;
 import jpastudy.stduy.domain.Team;
 import jpastudy.stduy.domain.dto.MemberDto;
+import jpastudy.stduy.repository.custom.UsernameOnly;
+import jpastudy.stduy.repository.dto.ProjectinosMemberDto;
+import jpastudy.stduy.repository.dto.ProjectionsDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -302,4 +305,49 @@ public class MemberRepositoryTest {
         System.out.println("member1.toString() = " + member1.toString());
     }
     
+    @Test
+    @DisplayName("확장 기능 - 사용자 정의 인터페이스 메소드!")
+    void start_11() throws Exception{
+        //given
+        List<Member> allCustom = memberRepository.findAllCustom();
+        //when
+        allCustom.stream()
+                .forEach(member->{
+                    System.out.println("member.getUsername() = " + member.getUsername());
+                    System.out.println("member.getTeam().getClass() = " + member.getTeam().getClass());
+                });
+        //then
+    }
+
+    @Test
+    @DisplayName("테이블 조회시 개발자가 정의한 정보만 가지고 오기")
+    void start_12() throws Exception{
+        //given
+        //when
+        List<UsernameOnly> member1 = memberRepository.findProjectionsByUsername("Member1");
+        List<ProjectinosMemberDto> member11 = memberRepository.findProjectionsReturnDtoByUsernameAndAge("Member1", 10);
+        //then
+        assertEquals(member1.size(), 1);
+        assertEquals(member1.get(0).getUsername(),"Member1");
+        assertEquals(member11.size(),1);
+        assertEquals(member11.get(0).getTeam().getName(),"TeamA");
+    }
+
+    @Test
+    @DisplayName("네이티브 쿼리 페이징 처리")
+    void start_13() throws Exception{
+        //given
+        PageRequest of = PageRequest.of(0, 2);
+        Page<ProjectionsDto> byPageProjections = memberRepository.findByPageProjections(of);
+        byPageProjections.getContent().stream()
+                .forEach(member->{
+                    System.out.println("member.getUsername() = " + member.getUsername());
+                    System.out.println("member.getUsername() = " + member.getTeamName());
+                });
+        //when
+
+        //then
+    }
+
+
 }

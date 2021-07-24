@@ -1,21 +1,17 @@
-package jpacore.jpashop.repository.order;
+package jpacore.jpashop.repository.order.old;
 
 import jpacore.jpashop.domain.Order;
 import jpacore.jpashop.repository.order.dto.UpdateOrderInfo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 @Repository
 @RequiredArgsConstructor
-public class OrderRepositoryImpl implements OrderRepository {
+public class Old_OrderRepositoryImpl implements Old_OrderRepository {
 
     private final EntityManager em;
 

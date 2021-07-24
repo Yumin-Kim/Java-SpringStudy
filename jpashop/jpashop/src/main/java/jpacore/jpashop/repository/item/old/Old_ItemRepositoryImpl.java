@@ -1,4 +1,4 @@
-package jpacore.jpashop.repository.item;
+package jpacore.jpashop.repository.item.old;
 
 import jpacore.jpashop.domain.item.Item;
 import jpacore.jpashop.repository.item.dto.UpdateItemDto;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class ItemRepositoryImpl implements ItemRepository{
+public class Old_ItemRepositoryImpl implements Old_ItemRepository {
 
     private final EntityManager em;
 

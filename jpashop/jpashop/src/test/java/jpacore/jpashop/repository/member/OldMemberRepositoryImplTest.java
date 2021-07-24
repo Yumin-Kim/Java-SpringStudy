@@ -4,6 +4,8 @@ import jpacore.jpashop.dto.UpdateUserInfo;
 import jpacore.jpashop.dto.user.DtoMemberInfo;
 import jpacore.jpashop.dto.user.DtoUserSearchInfo;
 import jpacore.jpashop.domain.*;
+import jpacore.jpashop.repository.member.old.Old_MemberRepository;
+import jpacore.jpashop.repository.member.old.Old_MemberRepositoryImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +19,14 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
-class MemberRepositoryImplTest {
+class OldMemberRepositoryImplTest {
 
     @Autowired
-    MemberRepository memberRepository = new MemberRepositoryImpl();
+    Old_MemberRepository oldMemberRepository = new Old_MemberRepositoryImpl();
     @Autowired
     EntityManager em;
     @Autowired
-    DummyUserFectory dummyUserFectory = new DummyUserFectory(em,memberRepository);
+    DummyUserFectory dummyUserFectory = new DummyUserFectory(em, oldMemberRepository);
 
     @Test
     @DisplayName("쿠폰 등록 하지 않고 조회시 모든 회원 조회")
@@ -40,7 +42,7 @@ class MemberRepositoryImplTest {
 
         CouponMember couponMember = dummyUserFectory.setCouponMember(member1, coupon1, 1, 20);
         //when
-        List<Member> members = memberRepository.findAll(0, 10).get();
+        List<Member> members = oldMemberRepository.findAll(0, 10).get();
     }
 
     @Test
@@ -58,7 +60,7 @@ class MemberRepositoryImplTest {
 
         CouponMember couponMember = dummyUserFectory.setCouponMember(member1, coupon1, 1, 20);
         //when
-        memberRepository.findAll(0, 10);
+        oldMemberRepository.findAll(0, 10);
 
         //then
 
@@ -70,7 +72,7 @@ class MemberRepositoryImplTest {
     @Rollback(value = false)
     void findOne() {
         Member member = dummyUserFectory.setMember("city", "11234", "cityCode");
-        Long aLong = memberRepository.findOne(member).get();
+        Long aLong = oldMemberRepository.findOne(member).get();
         assertThat(aLong).isEqualTo(member.getId());
     }
 
@@ -86,7 +88,7 @@ class MemberRepositoryImplTest {
         updateUserInfo.setCity("city2");
         updateUserInfo.setStreet("street2");
 
-        Member member1 = memberRepository.updateUserInfo(member.getId(), updateUserInfo).get();
+        Member member1 = oldMemberRepository.updateUserInfo(member.getId(), updateUserInfo).get();
 
         assertThat(member1.getId()).isEqualTo(member.getId());
         assertThat(member1.getAddress().getCity()).isEqualTo("city2");
@@ -136,7 +138,7 @@ class MemberRepositoryImplTest {
         updateUserInfo.setStreet("street2");
         updateUserInfo.setCityCode("cityCode2");
         //when
-        Member updatemember = memberRepository.updateUserInfo(member.getId(), updateUserInfo).get();
+        Member updatemember = oldMemberRepository.updateUserInfo(member.getId(), updateUserInfo).get();
         //then
         assertThat(updatemember.getClass()).isEqualTo(member.getClass());
         assertThat(updatemember.getId()).isEqualTo(member.getId());
@@ -154,7 +156,7 @@ class MemberRepositoryImplTest {
         Address city2 = Address.createAddress("city2", "123", "citycode");
         dtoMemberInfo.setAddress(city2);
         dtoUserSearchInfo.setDtoMemberInfo(dtoMemberInfo);
-        List<Member> members = memberRepository.searchUserInfo(dtoUserSearchInfo).get();
+        List<Member> members = oldMemberRepository.searchUserInfo(dtoUserSearchInfo).get();
         assertThat(members.size()).isEqualTo(3);
         members.stream().forEach((v) ->
                 assertThat(v.getAddress().getCity()).isEqualTo(city2.getCity())
