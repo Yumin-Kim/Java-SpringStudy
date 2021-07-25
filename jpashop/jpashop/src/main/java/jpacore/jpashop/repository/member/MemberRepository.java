@@ -5,11 +5,26 @@ import jpacore.jpashop.dto.UpdateUserInfo;
 import jpacore.jpashop.dto.user.DtoUserSearchInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository  extends JpaRepository<Member,Long> {
+
+    Optional<Member> findByNickname(String nickname);
+
+    List<Member> findByName(String name);
+
+    Optional<Member> findByEmail(String email);
+
+    @Query("select m from Member m join fetch m.moneyStorage where m.id = :id")
+    Optional<Member> findMemberStorageById(@Param("id") Long userId);
+
+    @Query("select m from Member m join fetch m.moneyStorage ms join fetch m.jobs j where m.id = :id")
+    Optional<Member> findFullMemberById(@Param("id") Long userId);
+
     //TODO Page 타입으로 반환하는 메소드정의 및 List 타입으로 반환하는 매소드 정의 되어 있다.
     //TODO 테이블 조인 요소 확인
 //    @Query("select ")

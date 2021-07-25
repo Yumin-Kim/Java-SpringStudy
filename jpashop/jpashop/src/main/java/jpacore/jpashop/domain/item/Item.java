@@ -1,10 +1,12 @@
 package jpacore.jpashop.domain.item;
 
-import jpacore.jpashop.domain.Category;
+import jpacore.jpashop.domain.BaseEntity;
+import jpacore.jpashop.domain.Coupon;
 import jpacore.jpashop.domain.OrderItem;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,24 +17,25 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @DiscriminatorColumn(name = "dtype")
-public abstract class Item {
+@EntityListeners(AuditingEntityListener.class)
+public abstract class Item extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "item_id")
     private Long id;
     private String name;
-    private int stockPrice;
+    private int price;
     private String company;
 
     @OneToMany(mappedBy = "item")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "items")
-    private List<Category> categories = new ArrayList<>();
+    @OneToMany(mappedBy = "item")
+    private List<Coupon> coupons = new ArrayList<>();
 
     Item(String name, int stockPrice, String company) {
         this.name = name;
-        this.stockPrice = stockPrice;
+        this.price = stockPrice;
         this.company = company;
     }
 

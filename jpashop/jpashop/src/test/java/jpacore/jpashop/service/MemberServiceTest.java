@@ -1,6 +1,7 @@
 package jpacore.jpashop.service;
 
 import jpacore.jpashop.dto.MemberForm;
+import jpacore.jpashop.repository.dto.MemberDto;
 import jpacore.jpashop.repository.member.MemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,25 +10,37 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.Arrays;
 
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
+@Transactional
+@Rollback(false)
 public class MemberServiceTest {
-
-    @Mock
-    MemberRepository memberRepository;
+    @Autowired
+    InitDataMethod initDataMethod;
 
     @Autowired
     MemberService memberService;
 
+    @PersistenceContext
+    EntityManager entityManager;
+
     @Test
-    @DisplayName("회원 등록")
+    @DisplayName("캐쉬 충전")
+    @Rollback(value = false)
     void service_1() throws Exception{
+        initDataMethod.createMember();
+        entityManager.flush();
+        entityManager.clear();
         //given
-        MemberForm memberForm = new MemberForm("city", "street", "citycode1");
-        memberService.registerMember(memberForm);
+        MemberDto memberDto = memberService.chargeStorage(1L, 10000);
         //when
-        
+        System.out.println("memberDto = " + memberDto);
         //then
     }
 

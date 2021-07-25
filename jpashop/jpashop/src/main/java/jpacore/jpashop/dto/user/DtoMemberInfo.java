@@ -1,7 +1,7 @@
 package jpacore.jpashop.dto.user;
 
 import jpacore.jpashop.domain.Address;
-import jpacore.jpashop.domain.MemberStatus;
+import jpacore.jpashop.domain.enumtype.MemberStatus;
 import lombok.Getter;
 import lombok.Setter;
 

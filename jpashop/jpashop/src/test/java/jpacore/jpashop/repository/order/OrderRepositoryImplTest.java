@@ -2,7 +2,7 @@ package jpacore.jpashop.repository.order;
 
 import jpacore.jpashop.domain.Address;
 import jpacore.jpashop.domain.Delivery;
-import jpacore.jpashop.domain.DeliveryStatus;
+import jpacore.jpashop.domain.enumtype.DeliveryStatus;
 import jpacore.jpashop.domain.Order;
 import jpacore.jpashop.repository.order.old.Old_OrderRepository;
 import org.junit.jupiter.api.Assertions;
@@ -10,8 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.time.LocalDateTime;
 
 
 @SpringBootTest
@@ -26,9 +24,9 @@ class OrderRepositoryImplTest {
         //given
         Delivery createDelivery = Delivery.builder()
                 .address(Address.createAddress("서울", "서울길1", "123123"))
-                .status(DeliveryStatus.StART)
+                .status(DeliveryStatus.START)
                 .build();
-        Order order = Order.createOrder(createDelivery, LocalDateTime.now());
+//        Order order = Order.createOrder(createDelivery, item, member);
         //        orderRepository.save();
         //when
         //then

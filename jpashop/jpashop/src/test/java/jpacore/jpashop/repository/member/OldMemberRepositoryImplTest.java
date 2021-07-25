@@ -1,9 +1,11 @@
 package jpacore.jpashop.repository.member;
 
+import jpacore.jpashop.domain.item.Book;
 import jpacore.jpashop.dto.UpdateUserInfo;
 import jpacore.jpashop.dto.user.DtoMemberInfo;
 import jpacore.jpashop.dto.user.DtoUserSearchInfo;
 import jpacore.jpashop.domain.*;
+import jpacore.jpashop.repository.item.ItemRepository;
 import jpacore.jpashop.repository.member.old.Old_MemberRepository;
 import jpacore.jpashop.repository.member.old.Old_MemberRepositoryImpl;
 import org.junit.jupiter.api.DisplayName;
@@ -14,6 +16,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,7 @@ class OldMemberRepositoryImplTest {
 
     @Autowired
     Old_MemberRepository oldMemberRepository = new Old_MemberRepositoryImpl();
-    @Autowired
+    @PersistenceContext
     EntityManager em;
     @Autowired
     DummyUserFectory dummyUserFectory = new DummyUserFectory(em, oldMemberRepository);
@@ -94,6 +97,14 @@ class OldMemberRepositoryImplTest {
         assertThat(member1.getAddress().getCity()).isEqualTo("city2");
     }
 
+    @Autowired
+    ItemRepository itemRepository;
+
+    @Autowired
+    MemberRepository memberRepository;
+
+
+
     @Test
     @DisplayName("여러 회원이 정보 수정시 문제 발생??")
     @Transactional
@@ -101,19 +112,26 @@ class OldMemberRepositoryImplTest {
     public void updateUserAddresInfo() throws Exception{
         //given
         Member member1 = dummyUserFectory.setMember("ciry1","street1","citycode1");
-        Member member2 = dummyUserFectory.setMember("ciry2","street2","citycode2");
+//        Member member2 = dummyUserFectory.setMember("ciry2","street2","citycode2");
+
+
+        Book book = Book.createBook("book1", 123, "company1", "123", "123");
+        Book save = itemRepository.save(book);
+          Member member2 = memberRepository.findById(1L).get();
+        Job job1 = Job.createJob("dev");
+        Job job2 = Job.createJob("dev11");
+        Job job3 = Job.createJob("ment");
         //when
         //자료 구조를 활용하여 중복을 입력가능하게
-        member1.getFavoritefoods().add("짭뽕");
-        member1.getFavoritefoods().add("짜장");
-        member1.getFavoritefoods().add("짭뽕");
-
-        Address arrlistAddress = Address.createAddress("Test", "street3", "city2");
-
-        ArrayList<Address> addressList = new ArrayList<>();
-        member1.getHistory().add(arrlistAddress);
-        arrlistAddress.updateCity("OldCity");
-        member2.getHistory().add(arrlistAddress);
+//        member2.getFavoriteItem().add( save);
+        member1.updateJob(job1, job2, job3);
+//
+//        Address arrlistAddress = Address.createAddress("Test", "street3", "city2");
+//
+//        ArrayList<Address> addressList = new ArrayList<>();
+////        member1.getHistory().add(arrlistAddress);
+//        arrlistAddress.updateCity("OldCity");
+//        member2.getHistory().add(arrlistAddress);
 //        member1.getAddress().updateCity("Test");
 //        Address address = member1.getAddress();
 //        address.updateCity("OldCity");

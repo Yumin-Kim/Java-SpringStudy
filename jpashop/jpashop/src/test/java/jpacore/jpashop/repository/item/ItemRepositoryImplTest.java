@@ -18,7 +18,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ItemRepositoryImplTest {
 
     @Autowired
-    private Old_ItemRepositoryImpl itemRepository;
+    private Old_ItemRepositoryImpl itemRepository1;
+
+    @Autowired
+    ItemRepository itemRepository;
 
     @Test
     @DisplayName("아이템 정보 저장")
@@ -29,9 +32,9 @@ class ItemRepositoryImplTest {
         Album album = Album.createAlbum("AlbumSpring", 1001, "A_Album", "author1", "isbn1");
         Movie movie = Movie.createMovie("MovieSpring", 10002, "B_Movie", "direcotr", "actor1");
         //when
-        itemRepository.save(book);
-        itemRepository.save(album);
-        itemRepository.save(movie);
+        itemRepository1.save(book);
+        itemRepository1.save(album);
+        itemRepository1.save(movie);
         //then
     }
 
@@ -42,19 +45,19 @@ class ItemRepositoryImplTest {
     void findItemInfo() throws Exception {
         //given
         //when
-        Item item = itemRepository.findItem(1L);
+        Item item = itemRepository1.findItem(1L);
         //then
         assertThat(item.getName()).isEqualTo("BookSpring");
     }
     
-//    @Test
-//    @DisplayName("")
-//    void find() throws Exception{
-//        //given
-//
-//        //when
-//
-//        //then
-//    }
+    @Test
+    @DisplayName("")
+    void find() throws Exception{
+        //given
+        itemRepository.findByTypeBAll();
+        //when
+
+        //then
+    }
 
 }

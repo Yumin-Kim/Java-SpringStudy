@@ -1,14 +1,15 @@
 package jpacore.jpashop.repository.member;
 
-import jpacore.jpashop.domain.Address;
-import jpacore.jpashop.domain.Coupon;
-import jpacore.jpashop.domain.CouponMember;
-import jpacore.jpashop.domain.Member;
+import jpacore.jpashop.domain.*;
+import jpacore.jpashop.dto.MemberForm;
 import jpacore.jpashop.repository.member.old.Old_MemberRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class DummyUserFectory {
 
@@ -41,15 +42,18 @@ public class DummyUserFectory {
 
     public Member setMember(String city, String street, String cityCode) {
         Address address = Address.createAddress(city, street, cityCode);
-        Member member = Member.createMember(address);
+        MemberForm memberForm = new MemberForm("city", "street", "citycode1", "name", "nickname", "123", "dbald0@naer.com", false, 10, Arrays.asList("dev", "hello"));
+        List<Job> jobs = memberForm.getJobs().stream()
+                .map(Job::createJob).collect(Collectors.toList());
+        Member member = Member.createMember(memberForm.getName(), memberForm.getNickname(), memberForm.getPassword(), memberForm.getEmail(), memberForm.getAge(), address,jobs);
         oldMemberRepository.save(member);
         return member;
     }
 
     public Coupon setCoupon(String name, int salePercent) {
-        Coupon coupone = Coupon.createCoupone(name, salePercent);
-        em.persist(coupone);
-        return coupone;
+//        Coupon coupone = Coupon.createCoupone(name, salePercent);
+//        em.persist(coupone);
+        return null;
     }
 
     public CouponMember setCouponMember(Member member, Coupon coupon, int count, int totalSalcePricce) {

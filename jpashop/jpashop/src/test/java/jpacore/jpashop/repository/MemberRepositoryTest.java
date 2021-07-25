@@ -1,22 +1,40 @@
 package jpacore.jpashop.repository;
 
+import jpacore.jpashop.domain.Member;
+import jpacore.jpashop.repository.member.MemberRepository;
+import jpacore.jpashop.service.InitDataMethod;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 @SpringBootTest
 @Transactional
-//@Rollback(value = false)
+@Rollback(value = false)
 public class MemberRepositoryTest {
 
-    @Test
-    @DisplayName("쿠폰등록후 모든 회원 조회")
-    void membeRepo_1() throws Exception{
-        //given
+    @Autowired
+    MemberRepository memberRepository;
 
-        //when
+    @Autowired
+    InitDataMethod initDataMethod;
+
+    @PersistenceContext
+    EntityManager em;
+
+    @Test
+    @DisplayName("회원 정보 CRUD")
+    void membeRepo_1() throws Exception{
+        initDataMethod.createMember();
+        em.clear();
+        //given
+        Member member = memberRepository.findFullMemberById(1L).get();
+        System.out.println("member = " + member.getJobs());        //when
 
         //then
     }

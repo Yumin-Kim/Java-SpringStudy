@@ -1,16 +1,14 @@
 package jpacore.jpashop.domain;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import javax.persistence.Access;
 import javax.persistence.Embeddable;
 
 @Embeddable
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "of")
 public class Address {
     private String city;
     private String street;

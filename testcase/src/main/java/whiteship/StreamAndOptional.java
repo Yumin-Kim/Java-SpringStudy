@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class StreamAndOptional {
 
-    public void StreamAndOptionalFunc(){
+    public static void main(String[] args) {
         ArrayList<InnerClass> innerClasses = new ArrayList<>();
         innerClasses.add(new InnerClass("spring", 1L));
         innerClasses.add(new InnerClass("spring Data JPA", 2L));
@@ -54,15 +54,26 @@ public class StreamAndOptional {
         System.out.println("===================setter사용전후 비교===================");
         innerClasses.get(1).setTeacher(new Teacher());
         Teacher teacher = innerClasses.get(1).getTeacher();
-        teacher.setName("Hello");
+        teacher.setName("setHello 초기버전");
         Optional<String> name = teacher.getName();
-
+        String s1 = name.orElseGet(() -> "Success");
+        System.out.println("s1 = " + s1);
         String checkedOptinoal = name.orElseGet(() -> {
-            teacher.setName("Optional Null Point");
+            System.out.println("Optional.empty 상태 입니다 ");
+//            teacher.setName("Optional Null Point");
             return "input progrss...";
         });
-        System.out.println("checkedOptinoal = " + checkedOptinoal);
-        String s = teacher.getName().orElseGet(() -> "Error");
+        name.orElse("TEST");
+        name.ifPresentOrElse(System.out::println, () -> {
+            System.out.println("ifPresentOrElse 이며 비어 있으면 set할겁니다");
+            teacher.setName("Hello!!!!!!!!!!!!!!!");
+        });
+        name.orElseGet(() -> {
+            System.out.println("orElesGet Start");
+            return "orEleseGet";
+        });
+//        System.out.println("checkedOptinoal = " + checkedOptinoal);
+        String s = teacher.getName().get();
         System.out.println("s = " + s);
         System.out.println("===================flatMap 비교===================");
 
@@ -71,7 +82,7 @@ public class StreamAndOptional {
         booklist.add(new InnerClass("Book", 1L));
         testlist.add(new InnerClass("Test", 1L));
 
-        List<List<InnerClass>> toList =new ArrayList<>();
+        List<List<InnerClass>> toList = new ArrayList<>();
         toList.add(booklist);
         toList.add(testlist);
         toList.stream().flatMap(Collection::stream)
