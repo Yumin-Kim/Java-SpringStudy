@@ -56,6 +56,8 @@ public class StreamAndOptional {
         Teacher teacher = innerClasses.get(1).getTeacher();
         teacher.setName("setHello 초기버전");
         Optional<String> name = teacher.getName();
+        String asdasdasd = name.orElse("asdasdasd");
+        System.out.println("name = " + asdasdasd);
         String s1 = name.orElseGet(() -> "Success");
         System.out.println("s1 = " + s1);
         String checkedOptinoal = name.orElseGet(() -> {

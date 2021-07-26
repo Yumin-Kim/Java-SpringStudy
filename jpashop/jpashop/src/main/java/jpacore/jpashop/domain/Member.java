@@ -2,15 +2,18 @@ package jpacore.jpashop.domain;
 
 import jpacore.jpashop.domain.enumtype.MemberStatus;
 import jpacore.jpashop.domain.item.Item;
+import jpacore.jpashop.dto.MemberForm;
 import jpacore.jpashop.dto.UpdateUserInfo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Where;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 @Entity
@@ -23,7 +26,8 @@ import java.util.*;
 //        }
 //)
 //@Builder
-//@Where(clause = "privacy = false")
+@Where(clause = "is_deleted = 0")
+// TODO where 애노테이션을 통해서 삭제된 항목은 가지고 오지 않게 한다. 실제 데이터 베이스 등록 되는 컬럼 값을 적어줘야하며 JPA 부가적으로 컴파일 하는 과정이 존재하지 않는것 같다
 public class Member extends BaseEntity {
     @GeneratedValue
     @Id
@@ -40,6 +44,9 @@ public class Member extends BaseEntity {
     //TODO 나이는 birth 입력하여 연산하는 방식으로 변경 예정
     private int age;
 
+    @ColumnDefault("0")
+    private boolean isDeleted;
+
     @Embedded
     private Address address;
 
@@ -54,17 +61,14 @@ public class Member extends BaseEntity {
     private List<Order> orders = new ArrayList<>();
 
     @OneToMany(mappedBy = "member")
-    private List<CouponMember> couponMembers = new ArrayList<>();
+    private Set<CouponMember> couponMembers = new HashSet<>();
 
-    /////////////////////
-    /////////////////////컬렉션 엔티티
     @ElementCollection
     @CollectionTable(
             name = "favorite_item",
             joinColumns = @JoinColumn(name = "member_id")
     )
-    @Column(name = "favorite_item")
-    private Set<Item> favoriteItem = new HashSet<>();
+    private List<FavoriteItem> favoriteItem = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(
@@ -73,14 +77,7 @@ public class Member extends BaseEntity {
     )
     private List<Job> jobs = new ArrayList<>();
 
-    /////////////////////
-
-    Member(Address address, MemberStatus memberStatus) {
-        this.address = address;
-        this.memberStatus = memberStatus;
-    }
-
-    public Member(String name, String nickname, String password, String email, boolean privacy, int age, Address address, MemberStatus memberStatus, List<Job> jobs) {
+    protected Member(String name, String nickname, String password, String email, boolean privacy, int age, Address address, MemberStatus memberStatus, List<Job> jobs) {
         this.name = name;
         this.nickname = nickname;
         this.password = password;
@@ -98,6 +95,7 @@ public class Member extends BaseEntity {
     public static Member createMember(String name, String nickname, String password, String email, int age, Address userAddress, List<Job> jobs) {
         return new Member(name, nickname, password, email, false, age, userAddress, MemberStatus.BASIC, jobs);
     }
+
 
     ///////////////Test///////////////
     public void updateUserMemory(UpdateUserInfo updateUserInfo) {
@@ -141,5 +139,40 @@ public class Member extends BaseEntity {
                         e.printStackTrace();
                     }
                 });
+    }
+
+    public void modifyMemberInfo(Member member, MemberForm memberForm, Address address) {
+        if (memberForm.getPassword() != null) {
+            member.password = memberForm.getPassword();
+        }
+        if (memberForm.getJobs() != null) {
+            if (memberForm.getJobs().size() > 0)
+                member.jobs = memberForm.getJobs().stream()
+                        .map(Job::createJob).collect(Collectors.toList());
+        }
+        if (memberForm.getNickname() != null) {
+            member.nickname = memberForm.getNickname();
+        }
+        if (memberForm.getAge() != null) {
+            member.age = memberForm.getAge();
+        }
+        if (memberForm.getEmail() != null) {
+            member.email = memberForm.getEmail();
+        }
+        if (!memberForm.getPrivacy()) {
+            member.privacy = memberForm.getPrivacy();
+        }
+        if (memberForm.getCitycode() != null || memberForm.getStreet() != null || memberForm.getCity() != null) {
+            member.address.updateAddress(member, memberForm.getCity(), memberForm.getCitycode(), memberForm.getStreet());
+        }
+
+    }
+
+    public void updateIsDeleted(boolean valid) {
+        isDeleted = valid;
+    }
+
+    public void updateFavoriteItemList(List<FavoriteItem> createFavoriteItems) {
+        favoriteItem.addAll(createFavoriteItems);
     }
 }

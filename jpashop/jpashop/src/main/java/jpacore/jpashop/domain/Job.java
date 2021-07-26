@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EntityListeners;
+import java.util.List;
 
 @Embeddable
 @Getter
@@ -13,4 +14,9 @@ import javax.persistence.EntityListeners;
 @EntityListeners(AuditingEntityListener.class)
 public class Job extends BaseEntity {
     private String name;
+
+
+//    public static Job updateJob(List<String> jobs) {
+//
+//    }
 }

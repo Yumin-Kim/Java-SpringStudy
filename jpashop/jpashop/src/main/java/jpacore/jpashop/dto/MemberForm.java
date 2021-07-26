@@ -19,8 +19,9 @@ public class MemberForm {
     private String nickname;
     private String password;
     private String email;
-    private boolean privacy;
-    private int age;
+    private Boolean privacy;
+    private Integer age;
     private List<String> jobs;
+    private Integer storagePrice;
 //    private
 }

@@ -47,7 +47,7 @@ public class RemoteServiceTransacTest {
 
 
     private MemberForm makeMemberForm(String name, String nickname, String email, List<String> jobs1){
-        return new MemberForm("city", "street", "citycode1", name, nickname, "123", email, false, 10, jobs1);
+        return new MemberForm("city", "street", "citycode1", name, nickname, "123", email, false, 10, jobs1,0);
     }
 
     private Member makeMemberInfo(MemberForm memberForm) {

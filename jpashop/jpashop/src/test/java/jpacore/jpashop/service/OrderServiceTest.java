@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 @SpringBootTest
 @Rollback(value = false)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -32,8 +34,8 @@ class OrderServiceTest {
     void start_1() throws Exception {
         //given
         OrderForm orderForm = new OrderForm(Address.createAddress("d_city1", "d_street", "d_citycode"), 10, 1000);
-        orderService.createV1(1L, 6L, orderForm);
-        orderService.createV1(20L, 10L, orderForm);
+        orderService.createV1(1L, 8L, orderForm);
+        assertThrows(IllegalStateException.class,()->orderService.createV1(20L, 10L, orderForm));
         //when
 //        orderService.create()
         //then

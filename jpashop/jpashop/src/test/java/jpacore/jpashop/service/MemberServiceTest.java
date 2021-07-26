@@ -34,13 +34,9 @@ public class MemberServiceTest {
     @DisplayName("캐쉬 충전")
     @Rollback(value = false)
     void service_1() throws Exception{
-        initDataMethod.createMember();
-        entityManager.flush();
-        entityManager.clear();
         //given
-        MemberDto memberDto = memberService.chargeStorage(1L, 10000);
+        MemberDto memberDto = memberService.chargeStorage(8L, 10000);
         //when
-        System.out.println("memberDto = " + memberDto);
         //then
     }
 

@@ -13,6 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+//TODO 개발 비즈니스 요구 사항 - 시큐리티에서 진행
+// 1. 로그아웃 처리
+// 2. 로그인 처리
+
 @Service
 @RequiredArgsConstructor
 @Transactional

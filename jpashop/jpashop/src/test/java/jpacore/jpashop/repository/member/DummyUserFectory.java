@@ -42,7 +42,7 @@ public class DummyUserFectory {
 
     public Member setMember(String city, String street, String cityCode) {
         Address address = Address.createAddress(city, street, cityCode);
-        MemberForm memberForm = new MemberForm("city", "street", "citycode1", "name", "nickname", "123", "dbald0@naer.com", false, 10, Arrays.asList("dev", "hello"));
+        MemberForm memberForm = new MemberForm("city", "street", "citycode1", "name", "nickname", "123", "dbald0@naer.com", false, 10, Arrays.asList("dev", "hello"),0);
         List<Job> jobs = memberForm.getJobs().stream()
                 .map(Job::createJob).collect(Collectors.toList());
         Member member = Member.createMember(memberForm.getName(), memberForm.getNickname(), memberForm.getPassword(), memberForm.getEmail(), memberForm.getAge(), address,jobs);

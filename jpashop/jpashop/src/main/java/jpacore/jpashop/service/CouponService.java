@@ -13,6 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+//TODO 개발 비즈니스 요구 사항
+// 1. coupon 제거
+// 2. coupon 정보 수정
+// 3. coupon 소지 사용자 확인
+// 4. 조건부 페이징
+// 5. 쿠폰 일괄 지급 (벌크 연산)
+//
 @Service
 @Transactional
 public class CouponService {
@@ -31,7 +38,7 @@ public class CouponService {
     }
 
     /**
-     *
+     * 상품에 따른 쿠폰 생성
      * @param couponForm RequestBody
      * @param itemId PathVariable
      * @return

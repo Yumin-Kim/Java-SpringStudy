@@ -60,7 +60,6 @@ public class ItemDto {
         this.isbn = isbn;
     }
 
-
     public ItemDto(Movie movie, String actor, String director) {
         id = movie.getId();
         name = movie.getName();
@@ -70,6 +69,23 @@ public class ItemDto {
         lastModifiedDate = movie.getLastModifiedDate();
         this.actor = actor;
         this.director = director;
+    }
+
+    public static Item toEntity(ItemDto itemDto) {
+        //Album
+        Item entity = null;
+        if (itemDto.isbn != null) {
+            entity = Album.createAlbum(itemDto.name, itemDto.stockQutity, itemDto.company, itemDto.author, itemDto.isbn);
+        }
+        //Movie
+        if (itemDto.actor != null) {
+            entity = Movie.createMovie(itemDto.name, itemDto.stockQutity, itemDto.company, itemDto.director, itemDto.actor);
+        }
+        //Book
+        if (itemDto.etc != null) {
+            entity = Book.createBook(itemDto.name, itemDto.stockQutity, itemDto.company, itemDto.artist, itemDto.etc);
+        }
+        return entity;
     }
 
 }
