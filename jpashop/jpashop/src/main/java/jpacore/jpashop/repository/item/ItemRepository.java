@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ItemRepository extends JpaRepository<Item,Long> {
 
@@ -18,4 +19,7 @@ public interface ItemRepository extends JpaRepository<Item,Long> {
 
     @Query("select i from Item i where i.id in :ids")
     List<Item> findItemsByIds(@Param("ids") List<Long> itemIdList);
+
+    @Query("select i from Item i where i.id in :ids")
+    List<Item> findItemsSetByIds(@Param("ids") List<Set<Long>> itemIdList);
 }

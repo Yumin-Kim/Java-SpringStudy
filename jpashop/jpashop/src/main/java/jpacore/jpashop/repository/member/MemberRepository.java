@@ -14,7 +14,7 @@ import org.springframework.security.core.parameters.P;
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository  extends JpaRepository<Member,Long> {
+public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Optional<Member> findByNickname(String nickname);
 
@@ -37,7 +37,24 @@ public interface MemberRepository  extends JpaRepository<Member,Long> {
     @Query(value = "select m from Member m join fetch m.favoriteItem fi  where m.id = :id")
     Optional<Member> findFavoriteItemsById(@Param("id") Long userId);
 
+    @EntityGraph(attributePaths = {"jobs"})
+    Optional<Member> findMemberJobById(Long userId);
 
+    /**
+     * link 절 테스트 V1 조회 항목이 부분적으로 동일한지 확인
+     *
+     * @param getJobsName
+     * @return
+     */
+    @EntityGraph(attributePaths = {"jobs"})
+    @Query("select m from Member m join fetch m.jobs j where j.name like concat(:jobs,'%')")
+    List<Member> findMemberJobByNameLike(@Param("jobs") String getJobsName);
+
+    @Query("select m from Member m join fetch m.jobs j where j.name in :jobs")
+    List<Member> findMemberJobByNameIn(@Param("jobs") List<String> jobsName);
+
+    @Query(value = "select m from Member m join fetch m.favoriteItem fi where m.id in :ids")
+    List<Member> findJobsFavoriteByIds(@Param("ids") List<Long> userIds);
     //TODO Page 타입으로 반환하는 메소드정의 및 List 타입으로 반환하는 매소드 정의 되어 있다.
     //TODO 테이블 조인 요소 확인
 //    @Query("select ")

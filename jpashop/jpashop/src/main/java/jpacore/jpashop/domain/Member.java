@@ -68,7 +68,7 @@ public class Member extends BaseEntity {
             name = "favorite_item",
             joinColumns = @JoinColumn(name = "member_id")
     )
-    private List<FavoriteItem> favoriteItem = new ArrayList<>();
+    private Set<FavoriteItem> favoriteItem = new HashSet<>();
 
     @ElementCollection
     @CollectionTable(
@@ -98,22 +98,11 @@ public class Member extends BaseEntity {
 
 
     ///////////////Test///////////////
-    public void updateUserMemory(UpdateUserInfo updateUserInfo) {
-        Arrays.stream(updateUserInfo.getClass().getDeclaredFields()).findFirst().stream().forEach((v) -> {
-            Arrays.stream(this.getAddress().getClass().getDeclaredFields()).forEach((inner) -> {
-                if (inner.getName().equals(v.getName())) {
-                }
-            });
-        });
-    }
 
     public void updateJob(Job... job) {
         jobs.addAll(Arrays.asList(job));
     }
 
-    public void updateCity(String updateCity) {
-        this.getAddress().updateCity(updateCity);
-    }
 
     public void updateUserInfo(UpdateUserInfo updateUserInfo) {
         Arrays.stream(updateUserInfo.getClass().getDeclaredFields())

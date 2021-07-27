@@ -2,9 +2,7 @@ package jpacore.jpashop.service;
 
 import jpacore.jpashop.domain.item.Book;
 import jpacore.jpashop.domain.item.Item;
-import jpacore.jpashop.domain.item.Movie;
-import jpacore.jpashop.dto.CouponForm;
-import jpacore.jpashop.repository.dto.CouponDto;
+import jpacore.jpashop.dto.CouponDto;
 import jpacore.jpashop.repository.dto.ItemDto;
 import jpacore.jpashop.repository.item.ItemRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -12,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
@@ -35,18 +32,18 @@ class CouponServiceTest {
     @Test
     @DisplayName("쿠폰 저장하여 진행")
     void createv2() {
-        CouponForm couponForm = createCouponForm();
+        CouponDto couponForm = createCouponForm();
         Item item = itemRepository.findByArtistAndEtc("artist1", "etc1", "book1");
-        CouponDto couponDto = couponService.createv2(couponForm, item.getId());
+        jpacore.jpashop.repository.dto.CouponDto couponDto = couponService.createv2(couponForm, item.getId());
         System.out.println("couponDto.toString() = " + couponDto.toString());
         System.out.println("couponDto.toString() = " + couponDto.getItemDto().toString());
         assertThrows(RuntimeException.class,()->couponService.createv2(couponForm,2L));
     }
 
-    private CouponForm createCouponForm() {
+    private CouponDto createCouponForm() {
         Book saveBook = itemRepository.save(Book.createBook("book1", 100, "company1", "artist1", "etc1"));
         ItemDto itemDto = new ItemDto(saveBook);
-        return new CouponForm(itemDto, "쿠폰1", 100, LocalDateTime.now(), LocalDateTime.of(2021, 10, 20, 10, 20));
+        return new CouponDto(itemDto, "쿠폰1", 100, LocalDateTime.now(), LocalDateTime.of(2021, 10, 20, 10, 20));
     }
 
 }

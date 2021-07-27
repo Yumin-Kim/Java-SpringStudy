@@ -3,6 +3,8 @@ package jpacore.jpashop.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Where;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -11,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
-
+@Where(clause = "is_userd = 0")
 public class CouponMember extends  BaseEntity{
     @Id
     @Column(name = "coupon_member_id")
@@ -20,6 +22,8 @@ public class CouponMember extends  BaseEntity{
 
     private int count;
     private int totalSalePrice;
+    @ColumnDefault("0")
+    private Boolean isUsed;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

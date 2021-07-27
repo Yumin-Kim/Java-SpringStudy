@@ -21,7 +21,7 @@ public class Coupon extends BaseEntity {
     @Column(name = "coupon_id")
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
 
     private String name;
     private int salePercent;

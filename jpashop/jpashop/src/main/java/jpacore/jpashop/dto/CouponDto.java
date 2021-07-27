@@ -10,19 +10,28 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
-public class CouponForm {
+public class CouponDto {
 
+    private Long id;
     private String name;
     private int salePercent;
     private LocalDateTime eventStartPoint;
     private LocalDateTime eventEndPoint;
     private ItemDto itemDto;
 
-    public CouponForm(ItemDto itemDto, String name, int salePercent, LocalDateTime eventStartPoint, LocalDateTime eventEndPoint) {
+    public CouponDto(ItemDto itemDto, String name, int salePercent, LocalDateTime eventStartPoint, LocalDateTime eventEndPoint) {
         this.eventEndPoint = eventEndPoint;
         this.eventStartPoint = eventStartPoint;
         this.name = name;
         this.salePercent = salePercent;
+        this.itemDto = itemDto;
+    }
+    public CouponDto(ItemDto itemDto, Coupon coupon) {
+        this.id = coupon.getId();
+        this.eventEndPoint = coupon.getEventEndPoint();
+        this.eventStartPoint = coupon.getEventStartPoint();
+        this.name = coupon.getName();
+        this.salePercent = coupon.getSalePercent();
         this.itemDto = itemDto;
     }
 
