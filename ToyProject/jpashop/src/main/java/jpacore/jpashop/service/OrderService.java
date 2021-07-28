@@ -83,10 +83,10 @@ public class OrderService {
                 List<Long> couponIds = couponForms.stream()
                         .map(CouponDto::getId)
                         .collect(toList());
-                List<CouponMember> findIdCouponMember = couponMemberRepository.findCouponInfoByIds(couponIds);
-                if(findIdCouponMember.size() < 0){
-                    throw new IllegalStateException("소지 하지 않은 쿠폰입니다. 다시 주문하세요");
-                }
+//                List<CouponMember> findIdCouponMember = couponMemberRepository.findCouponInfoByIds(couponIds);
+//                if(findIdCouponMember.size() < 0){
+//                    throw new IllegalStateException("소지 하지 않은 쿠폰입니다. 다시 주문하세요");
+//                }
                 //coupon_m = 모든 정보 와 coupon_쿠폰 할인율 정보 필요
 //                findIdCouponMember.stream()
 //                        .map(CouponMember::getCoupon)

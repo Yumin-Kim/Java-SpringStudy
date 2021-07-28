@@ -11,6 +11,7 @@ import jpacore.jpashop.repository.member.MemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,9 @@ public class MemberServiceTest {
     @Mock
     ItemRepository itemRepository;
 
+    @InjectMocks
+    MemberService memberService;
+
     @Test
     @DisplayName("캐쉬 충전")
     void service_1() throws Exception{
@@ -50,16 +54,15 @@ public class MemberServiceTest {
     void service_2() throws Exception{
         //given
 
-        MemberService memberService = new MemberService(itemRepository,memberRepository);
-
         Address address = Address.of("city", "street", "cityCode");
         Job dev = Job.createJob("dev");
         Job lopment = Job.createJob("lopment");
 
         Member member = Member.createMember("name1", "nickname", "password", "email", 10, address, Arrays.asList(dev, lopment));
+
         given(memberRepository.findMemberFullCouponById(any()))
                 .willReturn(Optional.of(member));
-        given(memberRepository.findMoneyJobById(any())).willReturn(Optional.of(member));
+//        given(memberRepository.findMoneyJobById(any())).willReturn(Optional.of(member));
         //when
         MemberFullDto memberFullDto = memberService.selectFullEntity(any());
         //then
@@ -67,13 +70,22 @@ public class MemberServiceTest {
     }
 
     @Test
-    @DisplayName("")
-    void () throws Exception{
+    @DisplayName("회원 모든 정보 조회 실패")
+    void service_3() throws Exception{
         //given
+        Address address = Address.of("city", "street", "cityCode");
+        Job dev = Job.createJob("dev");
+        Job lopment = Job.createJob("lopment");
 
+        Member member = Member.createMember("name1", "nickname", "password", "email", 10, address, Arrays.asList(dev, lopment));
+
+        given(memberRepository.findMemberFullCouponById(any()))
+                .willReturn(Optional.empty());
         //when
-
+        MemberFullDto memberFullDto = memberService.selectFullEntity(any());
         //then
+        assertNotNull(memberFullDto);
     }
+
 
 }

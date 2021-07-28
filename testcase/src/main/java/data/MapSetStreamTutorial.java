@@ -46,7 +46,8 @@ public class MapSetStreamTutorial {
 
         Map<MemberDto, List<MemberAddress>> memberDtoListMap = members.stream()
                 .collect(groupingBy(member -> new MemberDto(member.getId(), member.getCityCode(), member.getCity())
-                        , mapping(memberDto -> new MemberAddress(memberDto.getCityCode(), memberDto.getCity()), toList())
+                        , mapping(memberDto -> new MemberAddress(memberDto.getCityCode(), memberDto.getCity()),
+                                toList())
                         )
                 );
 

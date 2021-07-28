@@ -87,8 +87,9 @@ public class StreamAndOptional {
         List<List<InnerClass>> toList = new ArrayList<>();
         toList.add(booklist);
         toList.add(testlist);
-        toList.stream().flatMap(Collection::stream)
+        List<String> collect2 = toList.stream().flatMap(Collection::stream)
                 .map(InnerClass::getTitle)
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
+
     }
 }
