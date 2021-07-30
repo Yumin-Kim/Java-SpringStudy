@@ -7,7 +7,7 @@ import springdatajpa.querydsl.domain.Member;
 
 import java.util.List;
 
-public interface MemberRepository extends JpaRepository<Member,Long> {
+public interface MemberRepository extends JpaRepository<Member,Long>,MemberRepositoryCustom {
 
     @Query("select m , t from Member m left join m.team t on t.name = :name")
     List<Member> findMemberToTeamByUsername(@Param("name")String name);

@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import springdatajpa.querydsl.domain.Member;
+import springdatajpa.querydsl.member.dto.MemberSearchCondition;
+import springdatajpa.querydsl.member.dto.MemberTeamDto;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,5 +49,29 @@ class MemberJpaRepositoryTest {
         assertThat(all_querydsl).containsExactly(username1,username2,username3);
         assertEquals(byUserName.size(),2);
     }
+    
+    @Test
+    @DisplayName("동적 쿼리를 통한 DTO 조회")
+    void start_2() throws Exception{
+        Member username1 = Member.builder().age(10).username("username1").build();
+        Member username2 = Member.builder().age(11).username("username2").build();
+        Member username3 = Member.builder().age(12).username("username3").build();
+        memberJpaRepository.save(username1);
+        memberJpaRepository.save(username2);
+        memberJpaRepository.save(username3);
+        MemberSearchCondition search = MemberSearchCondition.builder()
+                .build();
+        List<MemberTeamDto> memberTeamDtos = memberJpaRepository.searchCoditionMember(search);
+        System.out.println("memberTeamDtos.size() = " + memberTeamDtos.size());
+        memberTeamDtos.stream()
+                .forEach(memberTeamDto -> {
+                    System.out.println("memberTeamDto.toString() = " + memberTeamDto.toString());
+                });
 
+
+        //when
+        
+        //then
+    }
+    
 }

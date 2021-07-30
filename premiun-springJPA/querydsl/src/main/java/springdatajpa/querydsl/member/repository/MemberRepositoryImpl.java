@@ -1,70 +1,33 @@
 package springdatajpa.querydsl.member.repository;
 
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import org.springframework.stereotype.Repository;
-import springdatajpa.querydsl.domain.Member;
+import org.springframework.data.domain.*;
+import springdatajpa.querydsl.domain.QMember;
 import springdatajpa.querydsl.member.dto.MemberSearchCondition;
 import springdatajpa.querydsl.member.dto.MemberTeamDto;
 import springdatajpa.querydsl.member.dto.QMemberTeamDto;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Optional;
 
 import static org.springframework.util.StringUtils.hasText;
 import static springdatajpa.querydsl.domain.QMember.member;
 import static springdatajpa.querydsl.domain.QTeam.team;
 
-@Repository
-public class MemberJpaRepository {
+public class MemberRepositoryImpl implements MemberRepositoryCustom {
 
-    private final EntityManager em;
+    private EntityManager em;
     private JPAQueryFactory jpaQueryFactory;
 
-    public MemberJpaRepository(EntityManager em) {
-        this.em = em;
+    public MemberRepositoryImpl(EntityManager em) {
         this.jpaQueryFactory = new JPAQueryFactory(em);
     }
 
-    public void save(Member member) {
-        em.persist(member);
-    }
-
-    public Optional<Member> findById(Long userId) {
-        return Optional.ofNullable(em.find(Member.class, userId));
-    }
-
-    public List<Member> findAll() {
-        return em.createQuery("select m from Member m ", Member.class).getResultList();
-    }
-
-    public List<Member> findByUserName(String username) {
-        return em.createQuery("select m from Member m where m.username = :username", Member.class)
-                .setParameter("username", username)
-                .getResultList();
-    }
-
-    public List<Member> findByUsernames(List<String> usernames) {
-        return em.createQuery("select m from Member m where m.username in :usernames", Member.class)
-                .setParameter("usernames", usernames)
-                .getResultList();
-    }
-
-    public List<Member> findByUsernames_querydsl(List<String> usernames) {
-        return jpaQueryFactory
-                .selectFrom(member)
-                .where(member.username.in(usernames))
-                .fetch();
-    }
-
-    public List<Member> findAll_querydsl() {
-        return jpaQueryFactory
-                .selectFrom(member)
-                .fetch();
-    }
-
+    @Override
     public List<MemberTeamDto> searchCoditionMember(MemberSearchCondition memberSearchCodition) {
         return jpaQueryFactory.
                 select(new QMemberTeamDto(member.id.as("userId"), team.id.as("teamId"), member.username, team.name.as("teamname"), member.age))
@@ -72,6 +35,50 @@ public class MemberJpaRepository {
                 .leftJoin(member.team, team)
                 .where(seachConditionMethodV1(memberSearchCodition))
                 .fetch();
+
+    }
+
+    @Override
+    public Page<MemberTeamDto> searchCoditionMemberPageCount(MemberSearchCondition memberSearchCodition, Pageable pageable) {
+        QueryResults<MemberTeamDto> result = jpaQueryFactory.
+                select(new QMemberTeamDto(member.id.as("userId"), team.id.as("teamId"), member.username, team.name.as("teamname"), member.age))
+                .from(member)
+                .leftJoin(member.team, team)
+                .where(seachConditionMethodV1(memberSearchCodition))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+
+        long count = result.getTotal();
+
+        return new PageImpl(result.getResults(), pageable, count);
+    }
+
+    @Override
+    public Page<MemberTeamDto> searchCoditionMemberPageCountCompare(MemberSearchCondition memberSearchCodition, Pageable pageable) {
+        List<MemberTeamDto> result = jpaQueryFactory.
+                select(new QMemberTeamDto(member.id.as("userId"), team.id.as("teamId"), member.username, team.name.as("teamname"), member.age))
+                .from(member)
+                .leftJoin(member.team, team)
+                .where(seachConditionMethodV1(memberSearchCodition))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetch();
+
+        long count = jpaQueryFactory.
+                select(new QMemberTeamDto(member.id.as("userId"), team.id.as("teamId"), member.username, team.name.as("teamname"), member.age))
+                .from(member)
+                .leftJoin(member.team, team)
+                .where(seachConditionMethodV1(memberSearchCodition))
+                .fetchCount();
+
+        return new PageImpl<>(result,pageable,count);
+    }
+
+    @Override
+    public Slice<MemberTeamDto> searchCoditionMemberPageCountSlice(MemberSearchCondition memberSearchCodition, Pageable pageable) {
+
+        return null;
     }
 
     private BooleanBuilder seachConditionMethodV1(MemberSearchCondition memberSearchCodition) {
@@ -118,4 +125,3 @@ public class MemberJpaRepository {
     }
 
 }
-

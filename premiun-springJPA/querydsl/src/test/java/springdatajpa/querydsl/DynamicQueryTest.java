@@ -150,4 +150,5 @@ public class DynamicQueryTest {
     private BooleanExpression allMemberEq(String userNameCodition, Integer ageCodition) {
         return usernameEq(userNameCodition).and(ageEq(ageCodition));
     }
+
 }
