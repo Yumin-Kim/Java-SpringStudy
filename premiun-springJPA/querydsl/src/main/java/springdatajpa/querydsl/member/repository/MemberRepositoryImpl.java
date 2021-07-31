@@ -3,8 +3,11 @@ package springdatajpa.querydsl.member.repository;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.domain.*;
+import org.springframework.data.support.PageableExecutionUtils;
+import springdatajpa.querydsl.domain.Member;
 import springdatajpa.querydsl.domain.QMember;
 import springdatajpa.querydsl.member.dto.MemberSearchCondition;
 import springdatajpa.querydsl.member.dto.MemberTeamDto;
@@ -65,19 +68,17 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
                 .limit(pageable.getPageSize())
                 .fetch();
 
-        long count = jpaQueryFactory.
-                select(new QMemberTeamDto(member.id.as("userId"), team.id.as("teamId"), member.username, team.name.as("teamname"), member.age))
+        JPAQuery<Member> countQuery = jpaQueryFactory.
+                select(member)
                 .from(member)
                 .leftJoin(member.team, team)
-                .where(seachConditionMethodV1(memberSearchCodition))
-                .fetchCount();
+                .where(seachConditionMethodV1(memberSearchCodition));
 
-        return new PageImpl<>(result,pageable,count);
+        return PageableExecutionUtils.getPage(result, pageable,()-> countQuery.fetchCount());
     }
 
     @Override
     public Slice<MemberTeamDto> searchCoditionMemberPageCountSlice(MemberSearchCondition memberSearchCodition, Pageable pageable) {
-
         return null;
     }
 

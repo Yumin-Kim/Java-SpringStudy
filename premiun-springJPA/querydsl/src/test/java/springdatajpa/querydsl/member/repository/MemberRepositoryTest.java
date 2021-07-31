@@ -111,12 +111,19 @@ public class MemberRepositoryTest {
 
         MemberSearchCondition build = MemberSearchCondition.builder().ageLoe(30).build();
         PageRequest of = PageRequest.of(0, 3);
-        Page<MemberTeamDto> memberTeamDtos = memberRepository.searchCoditionMemberPageCount(build, of);
-        int size = memberTeamDtos.getContent().size();
-        //then
-        assertThat(size).isEqualTo(3);
-        assertEquals(memberTeamDtos.getNumberOfElements(), 3);
-        assertEquals(memberTeamDtos.getTotalElements(), 6);
+//        Page<MemberTeamDto> memberTeamDtos = memberRepository.searchCoditionMemberPageCount(build, of);
+//        int size = memberTeamDtos.getContent().size();
+//        //then
+//        assertThat(size).isEqualTo(3);
+//        assertEquals(memberTeamDtos.getNumberOfElements(), 3);
+//        assertEquals(memberTeamDtos.getTotalElements(), 6);
+
+
+        Page<MemberTeamDto> memberTeamDtos1 = memberRepository.searchCoditionMemberPageCountCompare(build, of);
+//        memberTeamDtos1.getContent().stream()
+//                .forEach(System.out::println);
+//        System.out.println("++++++++++++++++++++++++++++++++++");
+//        System.out.println("memberTeamDtos1.getTotalElements() = " + memberTeamDtos1.getTotalElements());
     }
 
 }
