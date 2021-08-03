@@ -10,33 +10,32 @@ public class DFSCoding {
     public static ArrayList<Integer> graph = new ArrayList<>();
 
     public static void main(String[] args) {
-        solution("1934",2);
-
+        int solution = solution(new int[]{1, 1, 1, 1, 1}, 3);
+        System.out.println("solution = " + solution);
     }
 
-    public static String solution(String number, int k) {
-        StringBuilder sb = new StringBuilder();
-        int len = number.length();
-        int index = 0;
-        int n = len - k;
+    public static int solution(int[] numbers, int target) {
+        int answer = 0;
 
-        for(int i = 0 ; i < n ; i++){
-            char max = '0';
+        answer = bfs(numbers, target, numbers[0], 1) + bfs(numbers, target, -numbers[0], 1);
 
-            for(int j = index ; j <= k + i ; j++){
-                char tmp = number.charAt(j);
-                System.out.println("index = " + index +"_" + i);
-                
-                if(max < tmp){
-                    max = tmp;
-                    index = j +1;
-                    System.out.println(" max < tmp index = " + index);
-                }
+        return answer;
+    }
+
+    public static int bfs(int[] numbers, int target, int sum, int i) {
+
+        if(i == numbers.length) {
+            if(sum == target) {
+                return 1;
+            } else {
+                return 0;
             }
-            sb.append(max);
         }
 
-        return sb.toString();
+        int result = 0;
+        result += bfs(numbers, target, sum+numbers[i], i+1);
+        result += bfs(numbers, target, sum-numbers[i], i+1);
+        return result;
     }
     
 }
