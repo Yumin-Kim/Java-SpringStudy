@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Event</title>
+</head>
+<body>
+<form action="#" th:action="@{/events/form/result}" method="post" th:object="${event}">
+<!--    <p th:if="${#fields.hasErrors('limit')}" th:errors="*{limit}">Incorrect date</p>-->
+<!--    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect date</p>-->
+    <input type="number" title="age" th:field="*{age}"/>
+    <input type="text" title="username" th:field="*{username}"/>
+    <input type="text" title="eventRegion" th:field="*{eventRegion}"/>
+    <input type="submit" value="Create"/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    window.onload = () =>{
+        const formtag = document.getElementById("test");
+        console.log(formtag)
+        formtag.addEventListener("click",(e)=>{
+            e.preventDefault()
+            const [username,eventRegion,age] = document.getElementById("form");
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST",`/events/form/result?username=${username.value}&eventRegion=${eventRegion.value}&age=${age.value}`)
+            console.log("asd")
+            xhr.send();
+            xhr.onload = ()=>{
+                if(xhr.status === 200){
+                    console.log(xhr.response);
+                    const data = JSON.parse(xhr.response);
+                    console.log(data)
+                    document.querySelector("#data").innerHTML  = xhr.response
+                }
+            }
+        })
+    }
+</script>
+
+<body>
+<form id="form" action="/events/form/result" method="POST">
+    <input type="text" name="username" />
+    <input type="text" name="eventRegion" />
+    <input type="text" name="age" />
+    <input id="test" type="submit" value="제출">
+</form>
+<div>
+    <p id="data"></p>
+</div>
+</body>
+</html>
