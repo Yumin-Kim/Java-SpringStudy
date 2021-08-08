@@ -22,6 +22,7 @@ public class UserDto {
 
     @Min(value = 0, message = "나이는 1세부터 가능합니다.")
     @Max(value = 100, message = "100세 이상의 정보는 수집하지 않습니다.")
+    @NotNull(message = "입력하지 않았습니다. - NotNull")
     private Integer age;
 
 }
