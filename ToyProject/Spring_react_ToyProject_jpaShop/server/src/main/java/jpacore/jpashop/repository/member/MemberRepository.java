@@ -38,8 +38,9 @@ public interface MemberRepository extends JpaRepository<Member, Long>,MemberCust
             "join fetch cm.coupon where m.id = :id")
     Optional<Member> findMemberJobStorageMoneyListById(@Param("id") Long userId);
 
-    @Query("select m from Member m join fetch m.moneyStorage ms join fetch m.jobs j join m.favoriteItem fi where m.id = :id")
+    @Query("select distinct m from Member m join fetch m.moneyStorage ms join fetch m.jobs j join m.favoriteItem fi where m.id = :id")
     Optional<Member> findFavoriteById(@Param("id") Long userId);
+
 
     @Query("select m from Member m join fetch m.moneyStorage ms join fetch m.jobs j join m.favoriteItem fi where m.id = :id")
     List<Member> findFavoriteListById(@Param("id") Long userId);

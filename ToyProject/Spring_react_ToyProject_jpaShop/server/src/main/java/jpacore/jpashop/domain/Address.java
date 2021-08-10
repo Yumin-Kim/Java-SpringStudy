@@ -9,7 +9,7 @@ import javax.persistence.Embeddable;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
-public class Address {
+public class    Address {
     private String city;
     private String street;
     private String citycode;

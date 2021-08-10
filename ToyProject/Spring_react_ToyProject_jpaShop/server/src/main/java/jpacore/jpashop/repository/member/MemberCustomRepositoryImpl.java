@@ -22,11 +22,12 @@ public class MemberCustomRepositoryImpl implements MemberCustomRepository {
     @Override
     public Optional<MemberFullDto> findMemberInfoFullJoinV1ById(Long userId) {
 
-        List<Member> memberFullJoinResult = em.createQuery("select m from Member m " +
-                " join fetch m.favoriteItem" +
-                " join fetch m.moneyStorage" +
-                " join fetch m.couponMembers" +
-                " join m.jobs" +
+        List<Member> memberFullJoinResult = em.createQuery("select distinct m from Member m " +
+                " join fetch m.favoriteItem fi" +
+                " join fetch m.moneyStorage ms" +
+                " join fetch m.couponMembers cm" +
+                " join fetch cm.coupon c" +
+                " join fetch m.jobs j " +
                 " where m.id = :id", Member.class)
                 .setParameter("id", userId)
                 .getResultList();

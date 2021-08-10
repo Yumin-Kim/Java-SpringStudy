@@ -3,6 +3,7 @@ package jpacore.jpashop.repository;
 import jpacore.jpashop.domain.FavoriteItem;
 import jpacore.jpashop.domain.Member;
 import jpacore.jpashop.domain.item.Item;
+import jpacore.jpashop.repository.dto.MemberFullDto;
 import jpacore.jpashop.repository.member.MemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -71,7 +72,11 @@ class MemberCustomRepositoryImplTest {
     @DisplayName("Repository_return Dto findMemberInfoFullJoinV1ById")
     void start_2() throws Exception{
         //given
-//        memberRepository.findMemberInfoFullJoinV1ById(24L);
+        MemberFullDto memberFullDto = memberRepository.findMemberInfoFullJoinV1ById(24L).get();
+        System.out.println("memberFullDto.getFavoriteItems().size() = " + memberFullDto.getFavoriteItems().size());
+        System.out.println("memberFullDto.getMyCoupons().size() = " + memberFullDto.getMyCoupons().size());
+        System.out.println("memberFullDto.getJobs().size() = " + memberFullDto.getJobs().size());
+        em.clear();
         //when
         Member member = memberRepository.findMemberJobStorageMoneyListById(24L).get();
         System.out.println("member.getJobs().size() = " + member.getJobs().size());
@@ -82,13 +87,18 @@ class MemberCustomRepositoryImplTest {
         //then
         member.getJobs().stream()
                 .forEach(favoriteItem -> System.out.println(favoriteItem.getName()));
-
-
+        em.clear();
         Member member1 = memberRepository.findMoneyAndJobById(24L).get();
 
         System.out.println("member.getJobs().size() = " + member1.getJobs().size());
-        System.out.println("member.getCouponMembers().size() = " + member1.getCouponMembers().size());
+//        System.out.println("member.getCouponMembers().size() = " + member1.getCouponMembers().size());
         System.out.println("member.getFavoriteItem().size() = " + member1.getFavoriteItem().size());
+        em.clear();
+
+        Member member2 = memberRepository.findFavoriteById(24L).get();
+        System.out.println("member.getJobs().size() = " + member2.getJobs().size());
+        System.out.println("member.getFavoriteItem().size() = " + member2.getFavoriteItem().size());
+
 
 
     }

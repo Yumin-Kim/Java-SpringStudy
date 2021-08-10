@@ -4,6 +4,9 @@ import jpacore.jpashop.domain.Address;
 import jpacore.jpashop.domain.Job;
 import jpacore.jpashop.domain.Member;
 import jpacore.jpashop.domain.item.Item;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,6 +15,9 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
+@Getter
+@Setter
+@AllArgsConstructor
 public class MemberFullDto {
 
     private Long id;

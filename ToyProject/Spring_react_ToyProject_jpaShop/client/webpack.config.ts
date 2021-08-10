@@ -73,7 +73,7 @@ const config: Configuration = {
     publicPath: "/dist/",
   },
   devServer: {
-    // historyApiFallback: true, // react router
+    historyApiFallback: true, // react router
     port: 5000,
     publicPath: "/dist/",
     hot: true,
