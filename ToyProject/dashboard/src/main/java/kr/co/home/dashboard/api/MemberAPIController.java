@@ -26,7 +26,7 @@ public class MemberAPIController {
 
     //TODO V2 여러 사람을 한번에 등록 할 수 있게
     @PostMapping
-    public Res createMemberV1(@Validated({MemberForm.MemberCreateForm.class}) MemberForm memberForm) {
+    public Res createMemberV1(@Validated({MemberForm.MemberCreateForm.class}) @RequestBody MemberForm memberForm) {
         String message = memberService.createMember(memberForm);
         return Res.isOk(message);
     }

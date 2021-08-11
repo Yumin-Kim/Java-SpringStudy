@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 public class MemberTeam {
-
     @Id
     @GeneratedValue
     @Column(name = "member_team_id")
@@ -35,4 +34,5 @@ public class MemberTeam {
     public static MemberTeam createRelation(Member member, Team team) {
         return new MemberTeam(member, team);
     }
+
 }

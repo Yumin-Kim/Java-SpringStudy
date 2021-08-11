@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface TeamRepository extends JpaRepository<Team,Long> {
     @Query("select t from Team t where t.id in :teamIds")
-    List<Team> findByIds(@Param("teamIds") Long[] teamIds);
+    List<Team> findByIds(@Param("teamIds") List<Long> teamIds);
 
     @EntityGraph(attributePaths = {"member"})
     @Query("select t from Team t where t.id = :teamId")

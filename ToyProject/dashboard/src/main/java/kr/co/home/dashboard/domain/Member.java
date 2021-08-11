@@ -16,7 +16,9 @@ import static org.springframework.util.StringUtils.hasText;
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name = "member")
+@Table(name = "member",uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"name"})
+})
 @Where(clause = "is_deleted = 0")
 public class Member {
 
@@ -38,7 +40,7 @@ public class Member {
     private Address address;
 
     @OneToMany(mappedBy = "member")
-    private List<MemberTeam> teams = new ArrayList<>();
+    private List<MemberTeam> memberTeams = new ArrayList<>();
 
     @OneToMany(mappedBy = "member")
     private List<Dashboard> dashboards = new ArrayList<>();

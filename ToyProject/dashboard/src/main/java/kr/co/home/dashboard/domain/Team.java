@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -22,7 +23,7 @@ public class Team {
     private int MaxTeamMember;
 
     @OneToMany(mappedBy = "team")
-    private Member member;
+    private List<MemberTeam> memberTeams;
 
     protected Team(String name, int maxTeamMember) {
         this.name = name;

@@ -31,4 +31,9 @@ public class ExceptionAdvice {
         }
     }
 
+    @ExceptionHandler({MemberFoundException.class,MemberNotFoundException.class,TeamNotFoundException.class})
+    public Res MemberException(Exception e){
+        return Res.isError(e.getMessage());
+    }
+
 }

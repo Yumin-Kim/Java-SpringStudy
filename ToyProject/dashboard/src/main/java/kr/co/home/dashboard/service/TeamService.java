@@ -45,11 +45,6 @@ public class TeamService {
                 .map(team -> teamRepository.findMembersById(teamId, pageable))
                 .orElseThrow(() -> new TeamNotFoundException());
         return null;
-//        if (findMembersByTeam.size() == 0) {
-//            throw new Team
-//        }
-
-
     }
 
     public List<MergeDto.TeamsOfMemberDtos> getTeamsOfMembers(Long[] teamIds, Pageable pageable) {

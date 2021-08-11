@@ -3,11 +3,13 @@ package kr.co.home.dashboard.dto;
 import kr.co.home.dashboard.domain.Member;
 import kr.co.home.dashboard.domain.MemberTeam;
 import kr.co.home.dashboard.domain.Team;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -85,10 +87,16 @@ public class Res<T> {
 
     @Setter
     @Getter
+    @AllArgsConstructor
     public static class MemberTeamDtos {
         private MemberDto memberInfo;
-        private List<TeamDto> teamInfo;
+        private List<TeamDto> teamInfo = new ArrayList<>();
 
-
+        public MemberTeamDtos(Member member, List<Team> teams) {
+            this.memberInfo = new MemberDto(member);
+            this.teamInfo = teams.stream()
+                    .map(TeamDto::new)
+                    .collect(toList());
+        }
     }
 }

@@ -6,6 +6,7 @@ import kr.co.home.dashboard.domain.Member;
 import kr.co.home.dashboard.domain.Team;
 import kr.co.home.dashboard.dto.MemberForm;
 import kr.co.home.dashboard.dto.Res;
+import kr.co.home.dashboard.exception.MemberFoundException;
 import kr.co.home.dashboard.exception.MemberNotFoundException;
 import kr.co.home.dashboard.exception.TeamNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -29,15 +31,20 @@ public class MemberService {
         return findAllMember.stream()
                 .map(member -> new Res.MemberDto(member))
                 .collect(toList());
-}
+    }
 
     public String createMember(MemberForm memberForm) {
+        String resultMessage = null;
         Member member = memberForm.toEnity();
-        Member saveMember = memberRepository.save(member);
-        if(saveMember.getName().equals(member.getName())){
-            return "success";
-        }
-        return "error";
+        Optional<Member> findMember = memberRepository.findByName(member.getName());
+        findMember.ifPresent(findNameMember -> {
+            if (findNameMember.getName().equals(memberForm.getName())) {
+                throw new MemberFoundException();
+            }
+        });
+        Member saveMember = findMember
+                .orElseGet(() -> memberRepository.save(member));
+        return "success";
     }
 
     public Res.MemberDto deleteMember(Long userId) {
