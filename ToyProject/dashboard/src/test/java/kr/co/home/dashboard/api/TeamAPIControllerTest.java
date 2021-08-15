@@ -47,7 +47,6 @@ class TeamAPIControllerTest {
     @MockBean
     CustomCollectorValidator customCollectorValidator;
 
-
     MockMvc mockMvc;
 
     ObjectMapper objectMapper = new ObjectMapper();

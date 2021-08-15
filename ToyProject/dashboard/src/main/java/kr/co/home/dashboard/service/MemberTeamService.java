@@ -12,17 +12,17 @@ import kr.co.home.dashboard.exception.MemberteamDuplicateException;
 import kr.co.home.dashboard.exception.TeamNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
+
 public class MemberTeamService {
 
     private final MemberRepository memberRepository;
@@ -52,8 +52,7 @@ public class MemberTeamService {
         return new Res.MemberTeamDtos(member, teams);
     }
 
-    public Map<String, List<Res.TeamDto>> findAllMemberTeam(Long userId, List<Long> teamIds) {
-        Member member = memberRepository.findById(userId).orElseThrow(() -> new MemberNotFoundException());
+    public Map<String, List<Res.TeamDto>> findAllMemberTeam(List<Long> teamIds) {
         List<Team> findTeams = teamRepository.findByIds(teamIds);
         if (findTeams.size() == 0) throw new TeamNotFoundException();
         List<MemberTeam> membersToTeam = memberTeamRepository.findByIds(findTeams.stream()
@@ -68,7 +67,9 @@ public class MemberTeamService {
                     if (teamDtoMap.containsKey(memberName)) {
                         teamDtoMap.get(memberName).add(teamDto);
                     } else {
-                        teamDtoMap.put(memberName, List.of(teamDto));
+                        List<Res.TeamDto> newData = new ArrayList<>();
+                        newData.add(teamDto);
+                        teamDtoMap.put(memberName, newData);
                     }
                 });
         return teamDtoMap;

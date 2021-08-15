@@ -31,7 +31,7 @@ public class ExceptionAdvice {
         }
     }
 
-    @ExceptionHandler({MemberFoundException.class,MemberNotFoundException.class,TeamNotFoundException.class})
+    @ExceptionHandler({IllegalArgumentException.class})
     public Res MemberException(Exception e){
         return Res.isError(e.getMessage());
     }

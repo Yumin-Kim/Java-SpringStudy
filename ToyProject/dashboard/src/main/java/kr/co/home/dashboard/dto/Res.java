@@ -18,10 +18,8 @@ import static java.util.stream.Collectors.toList;
 @Setter
 @Builder
 public class Res<T> {
-
     private String httpStatusCode;
     private T data;
-
     public static <T> Res<T> isOk(T data) {
         return (Res<T>) Res.builder()
                 .httpStatusCode(HttpStatus.OK.toString())
@@ -57,7 +55,6 @@ public class Res<T> {
         }
     }
 
-
     @Getter
     @Setter
     public static class MemberTeamDto {
@@ -69,8 +66,6 @@ public class Res<T> {
             teamInfo = new TeamDto(memberTeamRelation.getTeam());
         }
     }
-
-
 
     @Getter
     @Setter

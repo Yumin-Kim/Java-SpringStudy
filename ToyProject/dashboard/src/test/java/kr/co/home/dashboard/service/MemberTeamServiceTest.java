@@ -17,6 +17,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -93,5 +94,33 @@ class MemberTeamServiceTest {
         assertThrows(MemberteamDuplicateException.class, () -> memberTeamService.enterMembersToTeam(1L, List.of(2L, 3L)));
     }
 
+    @Test
+    @DisplayName("findAllMemberTeam pass logic")
+    void start_3() throws Exception{
+        //given
+        Member member = Member.createMember("name", 1, "email@email", Address.createAddress("city", "citycode", "DetailCode"));
+        Team name1 = Team.createTeam("name1", 1);
+        Team name2 = Team.createTeam("name2", 1);
+        Team name3 = Team.createTeam("name3", 1);
+
+        MemberTeam relation = MemberTeam.createRelation(member, name1);
+        MemberTeam relation1 = MemberTeam.createRelation(member, name2);
+        MemberTeam relation2 = MemberTeam.createRelation(member, name3);
+//        List<MemberTeam> relation11 = List.of(relation, relation1, relation2);
+        List<MemberTeam> relation11 = List.of(relation);
+        given(teamRepository.findByIds(any()))
+                .willReturn(List.of(name1, name2,name3));
+        given(memberTeamRepository.findByIds(any()))
+                .willReturn(relation11);
+
+        //when
+        Map<String, List<Res.TeamDto>> allMemberTeam =
+                memberTeamService.findAllMemberTeam(List.of(8L, 9L));
+        //then
+//        assertEquals(allMemberTeam.get(member.getName()).size() , 3 );
+//        assertEquals(allMemberTeam.get(member.getName()).get(0).getTeamName(), name1.getName());
+        assertEquals(allMemberTeam.get(member.getName()).size() , 1 );
+        assertEquals(allMemberTeam.get(member.getName()).get(0).getTeamName(), name1.getName());
+    }
 
 }
