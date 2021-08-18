@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>if unless</h1>
+<table border="1">
+    <tr>
+        <th>count</th>
+        <th>username</th>
+        <th>age</th>
+    </tr>
+    <tr th:each="user , userStat : ${users}">
+        <td th:text="${userStat.count}"></td>
+        <td>[[${user.username}]]</td>
+        <td>
+            <span th:text="${user.age}">0</span>
+            <span th:text="애기" th:if="${user.age ge 10}"></span>
+            <span th:text="미성년자" th:unless="${user.age gt 20}"></span>
+            <span th:text="어르신" th:unless="${user.age lt 30}"></span>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

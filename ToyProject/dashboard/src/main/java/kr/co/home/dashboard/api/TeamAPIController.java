@@ -55,7 +55,8 @@ public class TeamAPIController {
     }
 
     @PostMapping
-    public Res createTeams(@Valid @RequestBody List<TeamForm> teamForms, BindingResult bindingResult) throws BindException {
+    public Res createTeams(
+            @Valid @RequestBody List<TeamForm> teamForms, BindingResult bindingResult) throws BindException {
         customCollectorValidator.validate(teamForms, bindingResult);
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h3>단순한 객체</h3>
+<ul>
+    <li>${user.username} => [[${user.username}]]</li>
+    <li>${user.getUsername()} => [[${user.getUsername()}]]</li>
+    <li>${user['username']} => [[${user["username"]}]]</li>
+    <li><strong th:text="${user['username']}"></strong></li>
+</ul>
+<h3>List</h3>
+<ul>
+    <li>${user[0].getUsername()} => [[${users[0].getUsername()}]]</li>
+    <li>${user[0].getAge()} => [[${users[0].getAge()}]]</li>
+    <li>${user[1].getUsername()} =>[[${users[1].getUsername()}]]</li>
+    <li>${user[1].getAge()} =>[[${users[1].getAge()}]]</li>
+</ul>
+
+<h3>Map</h3>
+<ul>
+    <li>${userMap["username1"].getUsername()} => [[${userMap["username1"].getUsername()}]]</li>
+    <li>${userMap["username1"].getAge()} => [[${userMap["username1"].getAge()}]]</li>
+    <li>${userMap["username2"].getUsername()} => [[${userMap["username2"].getUsername()}]]</li>
+    <li>${userMap["username2"].getAge()} => [[${userMap["username2"].getAge()}]]</li>
+</ul>
+<h3>지역 변수 선언</h3>
+<ul>
+    <li>지역 변수 - (th:with)</li>
+    <div th:with="first=${users[0]}">
+        <p>지역 변수를 활용한 출력 user[0] <strong th:text="${first.getUsername()}"></strong></p>
+    </div>
+</ul>
+</body>
+</html>

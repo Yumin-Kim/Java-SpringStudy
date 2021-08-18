@@ -27,7 +27,9 @@ public class DashBoardAPIController {
     }
 
     @PostMapping("/{userId}")
-    public Res createDashboard(@Valid DashboardForm dashboardForm, @PathVariable("userId") Long userId) {
+    public Res createDashboard(
+            @Valid DashboardForm dashboardForm,
+            @PathVariable("userId") Long userId) {
         Req.DashboardDto dashboardDto = dashboardService.createDashboard(dashboardForm, userId);
         return Res.isOk(dashboardDto);
     }

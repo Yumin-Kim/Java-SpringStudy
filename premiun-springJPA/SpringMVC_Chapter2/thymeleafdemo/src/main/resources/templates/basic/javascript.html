@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    const username = [[${user.username}]];
+    const age = [[${user.age}]];
+    const username2 = /*[[${user.username}]]*/ "test username"
+
+    const user = [[${user}]]
+    console.log("username",username)
+    console.log("age",age)
+    console.log("username2",username2)
+    console.log("user",user)
+</script>
+<script th:inline="javascript">
+    const username1 = [[${user.username}]];
+    const age1 = [[${user.age}]];
+    const username21 = /*[[${user.username}]]*/ "test username"
+    const user1 = [[${user}]]
+    const userList = [[${users}]].map(value=>value.username).includes("username1")
+    console.log(userList)
+    alert(`${user1.age} 입니다`)
+    console.log("username1",username1)
+    console.log("age1",age1)
+    console.log("username21",username21)
+    console.log("user1",user1)
+</script>
+<script th:inline="javascript" >
+    [# th:each="user , stat : ${users}"]
+    const user[[${stat.count}+1]] = [[${user}]]
+    [/]
+</script>
+<body>
+<h1></h1>
+</body>
+</html>

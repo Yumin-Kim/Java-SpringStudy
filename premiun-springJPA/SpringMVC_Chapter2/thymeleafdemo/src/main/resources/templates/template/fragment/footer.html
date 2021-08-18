@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<body>
+    <footer th:fragment="copy">
+        <h2>푸터 자리 입니다.</h2>
+    </footer>
+
+    <footer th:fragment="copyParam (param1,param2)">
+        <h2>푸터 자리이며 파라미터를 받습니다.</h2>
+        <h2 th:text="${param1}"></h2>
+        <h2 th:text="${param2}"></h2>
+    </footer>
+
+</body>
+</html>
