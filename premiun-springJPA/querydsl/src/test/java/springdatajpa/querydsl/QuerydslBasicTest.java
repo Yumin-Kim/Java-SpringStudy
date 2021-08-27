@@ -191,6 +191,10 @@ public class QuerydslBasicTest {
         long limit = results.getLimit();
         long offset = results.getOffset();
         List<Member> content = results.getResults();
+        System.out.println("content = " + content);
+        System.out.println("limit = " + limit);
+        System.out.println("total = " + total);
+        System.out.println("offset = " + offset);
         //when
         //then
     }

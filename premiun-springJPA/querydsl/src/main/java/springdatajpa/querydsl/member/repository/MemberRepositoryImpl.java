@@ -92,7 +92,6 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
         if (hasText(memberSearchCodition.getTeamname())) {
             booleanBuilder.and(team.name.eq(memberSearchCodition.getTeamname()));
         }
-
         if (memberSearchCodition.getAgeGoe() != null) {
             booleanBuilder.and(member.age.goe(memberSearchCodition.getAgeGoe()));
         }

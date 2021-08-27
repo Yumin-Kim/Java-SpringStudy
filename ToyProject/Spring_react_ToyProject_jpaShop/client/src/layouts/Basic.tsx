@@ -5,18 +5,18 @@ import Admin from "../pages/Admin";
 import { Layout } from "antd";
 import { ContentCustom, HeaderCustom } from "./style";
 import Navigation from "./Navigation";
+import Home from "../pages/Home";
+import MainInputPage from "../pages/MainInputPage";
 const { Header, Content, Footer } = Layout;
 
 const Basic = () => {
   return (
     <Layout>
-      <HeaderCustom>
-        <Navigation />
-      </HeaderCustom>
+      <HeaderCustom>{/* <Navigation /> */}</HeaderCustom>
       <ContentCustom>
         <Switch>
-          <Route path="/" component={OriginRemote} exact={true} />
-          <Route path="/admin" component={Admin} />
+          <Route path="/" component={Home} exact={true} />
+          <Route path="/:stubing" component={MainInputPage} />
           <Redirect path="*" to="/" />
         </Switch>
       </ContentCustom>
