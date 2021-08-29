@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { loginAdminAPI } from "../redux_folder/actions/admin/index";
 
 const Home = () => {
+  const test = useCallback(() => {
+    console.log("asdasd");
+  }, []);
+
   return (
     <>
       <h1>Hello Home</h1>
@@ -12,6 +18,7 @@ const Home = () => {
           textAlign: "center",
         }}
       >
+        <Button onClick={test}> axios</Button>
         <Button block>
           <Link to="/make">계정 생성</Link>
         </Button>

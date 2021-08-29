@@ -3,11 +3,11 @@ import { Form, Input, Button, Select } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 const { Option } = Select;
 
-const layout = {
+export const layout = {
   labelCol: { span: 2, offset: 1 },
   wrapperCol: { span: 10 },
 };
-const tailLayout = {
+export const tailLayout = {
   wrapperCol: { offset: 2, span: 16 },
 };
 const inputArrayData = [

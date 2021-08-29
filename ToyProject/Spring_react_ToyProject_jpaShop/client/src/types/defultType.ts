@@ -39,7 +39,7 @@ export const routeToMappingData: IRoutePathNameComponentToEle[] = [
         name: "name",
         label: "이름 입력",
         inputText: "",
-        inputType: "number",
+        inputType: "text",
       },
       {
         name: "password",

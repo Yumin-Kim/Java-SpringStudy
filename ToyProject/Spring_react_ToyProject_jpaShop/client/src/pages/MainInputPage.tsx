@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Form, Input, Button, Typography } from "antd";
 import {
@@ -7,6 +7,12 @@ import {
   IRoutePathNameComponentToEle,
 } from "../types/defultType";
 import { layout } from "../components/FormComponet";
+import { useDispatch, useSelector } from "react-redux";
+import { ROOTSTATE } from "../redux_folder/reducers/root";
+import {
+  loginAdminInfoAction,
+  loginAdminAPI,
+} from "../redux_folder/actions/admin/index";
 const { Title } = Typography;
 interface IRouteInfo {
   stubing: typeof basicRoutePathName[number];
@@ -17,6 +23,7 @@ const MainInputPage = () => {
   const { stubing } = useParams<IRouteInfo>();
   const [serilizeData, setSerilizeData] =
     useState<IRoutePathNameComponentToEle | null>(null);
+  const dispatch = useDispatch();
   useEffect(() => {
     if (!serilizeData) {
       console.log("MainInputPage useEffect");
@@ -26,9 +33,22 @@ const MainInputPage = () => {
       console.log(serilizeData);
     }
   }, [stubing]);
-  const onFinish = (values: any) => {
-    console.log(values);
-  };
+  const onFinish = useCallback(
+    (values: any) => {
+      console.log(values);
+      if (stubing === "admin") {
+        console.log(stubing);
+        console.log(values.name, values.password);
+        dispatch(
+          loginAdminInfoAction.ACTION.REQUEST({
+            name: values.name,
+            password: values.password,
+          })
+        );
+      }
+    },
+    [stubing]
+  );
   return (
     <>
       <Title level={1}>{serilizeData?.categoryName}</Title>

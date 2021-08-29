@@ -3,8 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import "antd/dist/antd.css";
 import Basic from "../layouts/Basic";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { Provider } from "react-redux";
-import configure from "../redux_folder/store";
 const category = ["home", "member", "team", "dashboard", "comment"] as const;
 const GlobalStyle = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -57,18 +55,13 @@ table {
 }
 
 `;
-
 const App = () => {
-  const store = configure();
-
   return (
     <>
-      <Provider store={store}>
-        <GlobalStyle />
-        <BrowserRouter>
-          <Basic />
-        </BrowserRouter>
-      </Provider>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Basic />
+      </BrowserRouter>
     </>
   );
 };

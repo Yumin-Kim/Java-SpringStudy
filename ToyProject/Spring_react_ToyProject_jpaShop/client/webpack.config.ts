@@ -77,12 +77,12 @@ const config: Configuration = {
     port: 5000,
     publicPath: "/dist/",
     hot: true,
-    // proxy: {
-    //   '/api/': {
-    //     target: 'http://localhost:3000',
-    //     changeOrigin: true,
-    //   },
-    // },
+    proxy: {
+      "/api/": {
+        target: "http://localhost:5050",
+        changeOrigin: true,
+      },
+    },
   },
 };
 
