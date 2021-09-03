@@ -1,5 +1,9 @@
 import { AdminStore } from "../../types/storeType";
-import { ADMIN_MERGE_ACTIONS, LOGIN_ADMIN_INFO } from "../actions/admin/type";
+import {
+  ADMIN_MERGE_ACTIONS,
+  CREATE_ADMIN_INFO,
+  LOGIN_ADMIN_INFO,
+} from "../actions/admin/type";
 
 const adminIniitialState: AdminStore = {
   allStudentInfo_paging: null, // 학생 정보 페이징
@@ -23,6 +27,7 @@ const adminReducer = (
   action: ADMIN_MERGE_ACTIONS
 ): AdminStore => {
   switch (action.type) {
+    case CREATE_ADMIN_INFO.REQUEST:
     case LOGIN_ADMIN_INFO.REQUEST:
       return {
         ...state,
@@ -35,7 +40,15 @@ const adminReducer = (
         integrationSucessMessage: action.payload.message,
         integrationRequestMessage: null,
       };
+    case CREATE_ADMIN_INFO.SUCCESS:
+      return {
+        ...state,
+        integrationSucessMessage: action.payload.message,
+        defaultAdminInfo: action.payload.data,
+        integrationRequestMessage: null,
+      };
     case LOGIN_ADMIN_INFO.FAILURE:
+    case CREATE_ADMIN_INFO.FAILURE:
       return {
         ...state,
         integrationErrorMessage: action.payload.message,

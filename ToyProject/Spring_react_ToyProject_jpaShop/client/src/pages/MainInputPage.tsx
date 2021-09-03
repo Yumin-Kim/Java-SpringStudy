@@ -13,6 +13,8 @@ import {
   loginAdminInfoAction,
   loginAdminAPI,
 } from "../redux_folder/actions/admin/index";
+import { Link } from "react-router-dom";
+import { createAdminInfoAction } from "../redux_folder/actions/admin/index";
 const { Title } = Typography;
 interface IRouteInfo {
   stubing: typeof basicRoutePathName[number];
@@ -25,24 +27,40 @@ const MainInputPage = () => {
     useState<IRoutePathNameComponentToEle | null>(null);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (!serilizeData) {
-      console.log("MainInputPage useEffect");
-      setSerilizeData(
-        routeToMappingData.filter(value => value.pathName === stubing)[0]
-      );
-      console.log(serilizeData);
-    }
+    console.log("MainInputPage useEffect");
+    setSerilizeData(
+      routeToMappingData.filter(value => value.pathName === stubing)[0]
+    );
   }, [stubing]);
   const onFinish = useCallback(
     (values: any) => {
       console.log(values);
       if (stubing === "admin") {
-        console.log(stubing);
-        console.log(values.name, values.password);
+        const { name, password } = values;
         dispatch(
           loginAdminInfoAction.ACTION.REQUEST({
-            name: values.name,
-            password: values.password,
+            name,
+            password,
+          })
+        );
+      }
+      if (stubing === "find" || stubing === "modify" || stubing == "make") {
+        const { name, studentCode } = values;
+        if (stubing === "find") {
+        }
+        if (stubing === "modify") {
+        }
+        if (stubing === "make") {
+        }
+      }
+      if (stubing === "makeadmin") {
+        const { name, hashCode, password, phoneNumber } = values;
+        dispatch(
+          createAdminInfoAction.ACTION.REQUEST({
+            name,
+            hashCode,
+            password,
+            phoneNumber,
           })
         );
       }
@@ -65,8 +83,13 @@ const MainInputPage = () => {
           </Form.Item>
         ))}
         <Button type="primary" htmlType="submit">
-          가입
+          제출
         </Button>
+        {stubing === "admin" ? (
+          <Button>
+            <Link to="/makeadmin">관리자 계정 생성</Link>
+          </Button>
+        ) : null}
       </Form>
     </>
   );

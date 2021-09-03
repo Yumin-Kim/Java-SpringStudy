@@ -1,5 +1,9 @@
 import { EntityAction } from "../../../types/action";
-import { loginAdminInfoAction } from "./index";
+import {
+  createAdminAPI,
+  createAdminInfoAction,
+  loginAdminInfoAction,
+} from "./index";
 //관리자 로그인
 export const LOGIN_ADMIN_INFO = {
   REQUEST: "REQUEST_LOGIN_ADMIN_INFO",
@@ -42,5 +46,6 @@ export const MODIFY_STUDENT_INFO = {
 } as const;
 
 export type T_loginAdminAction = EntityAction<typeof loginAdminInfoAction>;
+export type T_createAdminAction = EntityAction<typeof createAdminInfoAction>;
 
-export type ADMIN_MERGE_ACTIONS = T_loginAdminAction;
+export type ADMIN_MERGE_ACTIONS = T_loginAdminAction | T_createAdminAction;
