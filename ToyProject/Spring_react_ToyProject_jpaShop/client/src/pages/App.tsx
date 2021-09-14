@@ -59,7 +59,7 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <BrowserRouter>
+      <BrowserRouter basename="/multi">
         <Basic />
       </BrowserRouter>
     </>

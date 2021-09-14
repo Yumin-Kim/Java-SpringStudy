@@ -26,7 +26,7 @@ const Home = () => {
           <Link to="/find">계정 찾기</Link>
         </Button>
         <Button block>
-          <Link to="/modify">계정 조회 및 수정</Link>
+          <Link to="/step">계정 조회 및 수정</Link>
         </Button>
         <Button block>
           <Link to="/admin">관리자 페이지</Link>

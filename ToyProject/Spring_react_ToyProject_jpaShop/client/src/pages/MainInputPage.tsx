@@ -15,6 +15,11 @@ import {
 } from "../redux_folder/actions/admin/index";
 import { Link } from "react-router-dom";
 import { createAdminInfoAction } from "../redux_folder/actions/admin/index";
+import {
+  studentFindStudentCodeAction,
+  studentModifyStudentInfoAction,
+  studentLoginInfoAction,
+} from "../redux_folder/actions/student/index";
 const { Title } = Typography;
 interface IRouteInfo {
   stubing: typeof basicRoutePathName[number];
@@ -25,6 +30,11 @@ const MainInputPage = () => {
   const { stubing } = useParams<IRouteInfo>();
   const [serilizeData, setSerilizeData] =
     useState<IRoutePathNameComponentToEle | null>(null);
+  const {
+    integrationErrorMessage,
+    integrationRequestMessage,
+    integrationSucessMessage,
+  } = useSelector((state: ROOTSTATE) => state.student);
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("MainInputPage useEffect");
@@ -44,15 +54,28 @@ const MainInputPage = () => {
           })
         );
       }
-      if (stubing === "find" || stubing === "modify" || stubing == "make") {
+      console.log(stubing);
+      if (stubing === "find" || stubing == "make" || stubing === "step") {
         const { name, studentCode } = values;
         if (stubing === "find") {
+          dispatch(
+            studentLoginInfoAction.ACTION.REQUEST({ name, studentCode })
+          );
         }
-        if (stubing === "modify") {
+        if (stubing === "step") {
+          dispatch(
+            studentFindStudentCodeAction.ACTION.REQUEST({ name, studentCode })
+          );
         }
         if (stubing === "make") {
+          console.log(name);
+
+          dispatch(
+            studentFindStudentCodeAction.ACTION.REQUEST({ name, studentCode })
+          );
         }
       }
+
       if (stubing === "makeadmin") {
         const { name, hashCode, password, phoneNumber } = values;
         dispatch(
@@ -71,6 +94,9 @@ const MainInputPage = () => {
     <>
       <Title level={1}>{serilizeData?.categoryName}</Title>
       <Title level={2}>{serilizeData?.categoryName}</Title>
+      <Title level={3}>{integrationErrorMessage}</Title>
+      <Title level={3}>{integrationRequestMessage}</Title>
+      <Title level={3}>{integrationSucessMessage}</Title>
       <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
         {" "}
         {serilizeData?.formTagInInputEl.map((value, index) => (

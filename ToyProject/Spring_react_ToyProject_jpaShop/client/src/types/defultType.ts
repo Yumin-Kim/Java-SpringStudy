@@ -6,7 +6,7 @@ import { EntityAction } from "./action";
 export const basicRoutePathName = [
   "make",
   "find",
-  "modify",
+  "step",
   "admin",
   "makeadmin",
 ] as const;
@@ -109,12 +109,12 @@ export const routeToMappingData: IRoutePathNameComponentToEle[] = [
     ],
   },
   {
-    pathName: "modify",
+    pathName: "step",
     categoryName: "계정 로그인",
     formTagInInputEl: [
       {
         name: "name",
-        label: "이름 입력",
+        label: "이름 입략",
         inputText: "",
         inputType: "text",
       },

@@ -1,4 +1,10 @@
 export type APIENDPOINT<R, P extends any[]> = (...p: P) => Promise<R>;
+
+export interface I_AxiosDefaultDataFormat<D> {
+  data: D;
+  message: string;
+}
+
 export interface I_ActionType<R, S, F> {
   REQUEST: R;
   SUCCESS: S;

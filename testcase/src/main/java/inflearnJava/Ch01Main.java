@@ -1,0 +1,155 @@
+package inflearnJava;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Ch01Main {
+
+    /**
+     * 문자열 대소문자 변경
+     * 문자열을 character 배열로 변경하는 메소드
+     * char.toCharArray()
+     *
+     * @param str
+     * @param t
+     * @return
+     */
+    public int solution_1(String str, char t) {
+        int answer = 0;
+
+        String upperCaseStr = str.toUpperCase();
+        char c = Character.toUpperCase(t);
+        for (int i = 0; i < upperCaseStr.length(); i++) {
+            if (upperCaseStr.charAt(i) == c) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+
+    /**
+     * 대소문자 변환
+     * Character.isLowerCase() 소문자 체크 return boolean
+     * 아스키 코드로 변환 가능
+     * 65~90 대문자
+     * 97~122 소문자
+     * 32 정도 차이가 있기 때문에 +=32후 char로 타입 캐스팅 필요
+     *
+     * @param str
+     * @return
+     */
+    public String solution_2(String str) {
+        String answer = "";
+        for (char x : str.toCharArray()) {
+//            if(Character.isLowerCase(x))  answer += Character.toUpperCase(x);
+//            else answer += Character.toLowerCase(x);
+            if (x >= 65 && x <= 90) {
+                answer += (char) (x + 32);
+            } else {
+                answer += (char) (x - 32);
+            }
+        }
+        return answer;
+    }
+
+    /**
+     * StringBuilder를 활용한 구현
+     * String.valueof(char) >> Character 를 String으로 변형된다.
+     *
+     * @param n
+     * @param a
+     * @return
+     */
+    public ArrayList<String> solution_3(int n, String[] a) {
+        ArrayList<String> answer = new ArrayList<>();
+        for (String x : a) {
+            char[] chars = x.toCharArray();
+            int lt = 0, rt = chars.length - 1;
+            while (lt < rt) {
+                char tmp = chars[lt];
+                chars[lt] = chars[rt];
+                chars[rt] = tmp;
+                lt++;
+                rt--;
+            }
+            String s = String.valueOf(chars);
+//            String s = new StringBuilder(x).reverse().toString();
+            answer.add(s);
+        }
+        return answer;
+    }
+
+    /**
+     * Character.isAlphabetic(chars[lt]) >> Character.isAlphabetic 알파벳유무 판단
+     * 아스키코드로도 가능 대문자 65~90 소문자 97-122
+     * @param str
+     * @return
+     */
+    public String solution_4(String str) {
+        String answer = "";
+        char[] chars = str.toCharArray();
+        int lt = 0, rt = chars.length - 1;
+//            if (!Character.isAlphabetic(chars[lt])) lt++;
+//            else if (!Character.isAlphabetic(chars[rt])){ rt--;}
+//            else{
+//             }
+        while (lt < rt) {
+            char tmp = chars[lt];
+            if ((tmp >= 65 && tmp <= 90) ) {
+                chars[lt] = chars[rt];
+                chars[rt] = tmp;
+            }
+            if ((tmp >= 97 && tmp <= 122)) {
+                chars[lt] = chars[rt];
+                chars[rt] = tmp;
+            }
+            lt++;
+            rt--;
+        }
+        answer = String.valueOf(chars);
+        return answer;
+    }
+
+    /**
+     * 문자열간 중복 제거
+     * string.charAt(index) >> 해당 문자열의 인덱스에 해당하는 character 문자 확인 가능
+     * 
+     * @param str
+     * @return
+     */
+    public String soulution_5(String str) {
+        String answer = "";
+        for (int i = 0 ; i < str.length() ; i++) {
+            if (i == str.indexOf(str.charAt(i))) {
+                System.out.println("x = " + str.charAt(i));
+                answer += str.charAt(i);
+            }
+        }
+        return answer;
+    }
+
+    /**
+     *
+     * new Scanner 받아옴
+     * sc.next() >> 단어 하나만
+     * sc.nextLine() >> 문장을 받앙옴     * @param args
+     */
+    public static void main(String[] args) {
+        Ch01Main T = new Ch01Main();
+        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        String[] str = new String[n];
+//        for (int i = 0; i < n; i++) {
+//            String s = sc.next();
+//            str[i] = s;
+//        }
+        String str = sc.next();
+        System.out.println("T.solution_4(str) = " + T.soulution_5(str));
+//        char c = sc.next().charAt(0);
+//        T.solution_3(n, str).stream()
+//                .forEach(System.out::println);
+//        return;
+    }
+
+
+}

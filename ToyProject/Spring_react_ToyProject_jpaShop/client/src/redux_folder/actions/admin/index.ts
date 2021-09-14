@@ -1,14 +1,15 @@
 import axios from "axios";
-import { createActionAxiosGetVerionToAPIPARMA } from "../../../types/action";
+import {
+  createActionAxiosGetVerionToAPIPARMA,
+  I_AxiosDefaultDataFormat,
+} from "../../../types/action";
 import { I_DefaultAdmin_Admin } from "../../../types/storeType";
 import { LOGIN_ADMIN_INFO, CREATE_ADMIN_INFO } from "./type";
 
-axios.defaults.baseURL = "http://localhost:5050/api";
-
-export interface I_AxiosDefaultDataFormat<D> {
-  data: D;
-  message: string;
-}
+axios.defaults.baseURL =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:5050/api"
+    : "http://localhost:8080/api";
 
 export const loginAdminAPI = async (
   adminDefault: Pick<I_DefaultAdmin_Admin, "name" | "password">

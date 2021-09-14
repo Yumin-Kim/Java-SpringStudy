@@ -10,9 +10,7 @@ public class DFSCoding {
     static int answer = 0;
 
     public static void main(String[] args) {
-        solution("hit", "cog",["hot", "dot", "dog", "lot", "log", "cog"])
-
-
+//        solution("hit", "cog",["hot", "dot", "dog", "lot", "log", "cog"])
     }
 
 
@@ -22,28 +20,28 @@ public class DFSCoding {
     }
 
 
-    private static void dfs(String begin, String target, String[] words, int cnt){
-        if(begin.equals(words)){
+    private static void dfs(String begin, String target, String[] words, int cnt) {
+        if (begin.equals(words)) {
             answer = cnt;
             return;
-        }else{
-            for(int i = 0 ; i < words.length ; i++){
-                if(visited[i]){
+        } else {
+            for (int i = 0; i < words.length; i++) {
+                if (visited[i]) {
                     continue;
                 }
                 int k = 0;
 
-                for(int j = 0 ; j < words[i].length() ; j ++){
-                    if(begin.charAt(j) == words[i].charAt(j)){
+                for (int j = 0; j < words[i].length(); j++) {
+                    if (begin.charAt(j) == words[i].charAt(j)) {
                         k++;
                     }
                 }
-                if(k == begin.length() - 1){
+                if (k == begin.length() - 1) {
                     visited[i] = true;
-                    dfs(words[i],target,words,cnt+1);
+                    dfs(words[i], target, words, cnt + 1);
                     visited[i] = false;
                 }
             }
         }
-
+    }
 }
