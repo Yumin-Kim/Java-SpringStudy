@@ -1,6 +1,7 @@
 package inflearnJava;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Ch01Main {
@@ -82,6 +83,7 @@ public class Ch01Main {
     /**
      * Character.isAlphabetic(chars[lt]) >> Character.isAlphabetic 알파벳유무 판단
      * 아스키코드로도 가능 대문자 65~90 소문자 97-122
+     *
      * @param str
      * @return
      */
@@ -95,7 +97,7 @@ public class Ch01Main {
 //             }
         while (lt < rt) {
             char tmp = chars[lt];
-            if ((tmp >= 65 && tmp <= 90) ) {
+            if ((tmp >= 65 && tmp <= 90)) {
                 chars[lt] = chars[rt];
                 chars[rt] = tmp;
             }
@@ -113,13 +115,13 @@ public class Ch01Main {
     /**
      * 문자열간 중복 제거
      * string.charAt(index) >> 해당 문자열의 인덱스에 해당하는 character 문자 확인 가능
-     * 
+     *
      * @param str
      * @return
      */
     public String soulution_5(String str) {
         String answer = "";
-        for (int i = 0 ; i < str.length() ; i++) {
+        for (int i = 0; i < str.length(); i++) {
             if (i == str.indexOf(str.charAt(i))) {
                 System.out.println("x = " + str.charAt(i));
                 answer += str.charAt(i);
@@ -129,10 +131,78 @@ public class Ch01Main {
     }
 
     /**
+     * 희문
+     * StringBuilder()를 활용하여 reverse.toString()진행후 equal() 활용
      *
+     * @return
+     */
+    public String soulution_6(String str) {
+        String answer = "YES";
+        String upperCase = str.toUpperCase();
+        for (int i = 0; i < str.length() / 2; i++) {
+            System.out.println("i = " + i);
+            if (upperCase.charAt(i) != upperCase.charAt(str.length() - 1 - i)) {
+                System.out.println("i = " + upperCase.charAt(i));
+                answer = "No";
+            }
+        }
+        String upperCase1 = str.toUpperCase();
+        StringBuilder stringBuilder = new StringBuilder(upperCase1);
+        String reverseStr = stringBuilder.reverse().toString();
+        if (reverseStr.equals(upperCase1)) {
+            System.out.println("희문 가능 동일합니다.");
+        } else {
+            System.out.println("희문 가능 불가능 합니다.");
+        }
+        return answer;
+    }
+
+    /**
+     * replaceAll(정규 표현식 , 변경될 문자)
+     *
+     * @param str
+     * @return
+     */
+    public String solution_7(String str) {
+        String answer = "NO";
+        String uppverCase = str.toUpperCase().replaceAll("[^A-Z]", "");
+        String s = new StringBuilder(uppverCase).reverse().toString();
+        if (s.equals(uppverCase)) {
+            answer = "YES";
+        }
+        return answer;
+    }
+
+    /**
+     * Character.isDigit >> 문자가 숫자인지 판별
+     * 아스키코드의 숫자는 0~9 >> 48 ~ 57 까지 이다.
+     * @param str
+     * @return
+     */
+    public Integer solution_8(String str) {
+        int answer = 0;
+        for (char x : str.toCharArray()) {
+            if (x >= 48 && x <= 57) {
+                answer = (answer * 10) + (x - 48);
+            }
+        }
+        String answer_1 = "";
+        for (char x : str.toCharArray()) {
+            if (Character.isDigit(x)) {
+                answer_1 += x;
+            }
+        }
+        System.out.println("answer_1 = " + answer_1);
+        System.out.println("Integer.parseInt(answer_1) = " + Integer.parseInt(answer_1));
+        return answer;
+    }
+
+    /**
      * new Scanner 받아옴
      * sc.next() >> 단어 하나만
-     * sc.nextLine() >> 문장을 받앙옴     * @param args
+     * sc.nextLine() >> 문장을 받앙옴 , 뛰어쓰기존재한다면 nextLine()을 사용
+     *
+     * @param args
      */
     public static void main(String[] args) {
         Ch01Main T = new Ch01Main();
@@ -143,8 +213,9 @@ public class Ch01Main {
 //            String s = sc.next();
 //            str[i] = s;
 //        }
-        String str = sc.next();
-        System.out.println("T.solution_4(str) = " + T.soulution_5(str));
+//        String str = sc.next();
+        String str = sc.nextLine();
+        System.out.println("T.solution_6(str) = " + T.solution_8(str));
 //        char c = sc.next().charAt(0);
 //        T.solution_3(n, str).stream()
 //                .forEach(System.out::println);

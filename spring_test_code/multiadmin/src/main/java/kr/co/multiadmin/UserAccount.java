@@ -1,5 +1,6 @@
 package kr.co.multiadmin;
 
+import kr.co.multiadmin.domain.Account;
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;

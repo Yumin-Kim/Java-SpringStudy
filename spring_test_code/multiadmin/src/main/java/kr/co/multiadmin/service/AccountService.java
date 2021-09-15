@@ -1,6 +1,6 @@
 package kr.co.multiadmin.service;
 
-import kr.co.multiadmin.Account;
+import kr.co.multiadmin.domain.Account;
 import kr.co.multiadmin.AccountDto;
 import kr.co.multiadmin.UserAccount;
 import kr.co.multiadmin.repository.AccountRepository;
