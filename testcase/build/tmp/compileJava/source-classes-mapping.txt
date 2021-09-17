@@ -107,6 +107,8 @@ data/dto/MemberQueryDto.java
  data.dto.MemberQueryDto
 data/dto/MemberFlatDto.java
  data.dto.MemberFlatDto
+inflearnJava/Ch01Main.java
+ inflearnJava.Ch01Main
 spring/Study.java
  spring.Study
 whiteship/StreamAndOptional.java
@@ -121,5 +123,5 @@ java8sytax/FunctioInInterface.java
  java8sytax.FunctioInInterface
 syntax/SetSyntax.java
  syntax.SetSyntax
-inflearnJava/Ch01Main.java
- inflearnJava.Ch01Main
+inflearnJava/Ch02Main.java
+ inflearnJava.Ch02Main

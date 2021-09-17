@@ -176,6 +176,7 @@ public class Ch01Main {
     /**
      * Character.isDigit >> 문자가 숫자인지 판별
      * 아스키코드의 숫자는 0~9 >> 48 ~ 57 까지 이다.
+     *
      * @param str
      * @return
      */
@@ -197,6 +198,60 @@ public class Ch01Main {
         return answer;
     }
 
+    public int[] solution_9(String str, char n) {
+        int[] ints = new int[str.length()];
+        int p = 1000;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == n) {
+                p = 0;
+                ints[i] = p;
+            } else {
+                p++;
+                ints[i] = p;
+            }
+        }
+        p = 1000;
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (str.charAt(i) == n) p = 0;
+            else {
+                p++;
+                ints[i] = Math.min(p, ints[i]);
+            }
+        }
+        return ints;
+    }
+
+    public String solution_10(String str) {
+        int count = 1;
+        String tmp = "";
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) == str.charAt(i + 1)) {
+                count++;
+            } else {
+                tmp += str.charAt(i);
+                if (count > 1) {
+                    tmp += String.valueOf(count);
+                }
+                count = 1;
+            }
+        } 
+        return tmp;
+    }
+
+    public String solution_11(int n , String str){
+        String answer = "";
+
+        for (int i = 0; i < n; i++) {
+            String tmp = str.substring(0, 7);
+            String replace = tmp.replace('#', '1').replace('*','0');
+            int i1 = Integer.parseInt(replace, 2);
+            System.out.println("tmp = " + tmp + "   " +(char)i1);
+            str = str.substring(7);
+        }
+        return null;
+    }
+
+
     /**
      * new Scanner 받아옴
      * sc.next() >> 단어 하나만
@@ -213,9 +268,11 @@ public class Ch01Main {
 //            String s = sc.next();
 //            str[i] = s;
 //        }
-//        String str = sc.next();
-        String str = sc.nextLine();
-        System.out.println("T.solution_6(str) = " + T.solution_8(str));
+        String s = sc.next();
+        String str = sc.next();
+//        char c = sc.next().charAt(0);
+//                String str = sc.nextLine();
+        System.out.println("T.solution_9(str) = " + T.solution_11(Integer.parseInt(s),str));
 //        char c = sc.next().charAt(0);
 //        T.solution_3(n, str).stream()
 //                .forEach(System.out::println);
