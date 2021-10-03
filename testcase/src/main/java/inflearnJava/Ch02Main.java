@@ -9,21 +9,47 @@ public class Ch02Main {
     public static void main(String[] args) {
         Ch02Main main = new Ch02Main();
         Scanner scanner = new Scanner(System.in);
-        int i = scanner.nextInt();
-        int[] ints1 = new int[i];
-//        int[] ints2 = new int[i];
-        for (int x = 0; x < i; x++) {
-            int i1 = scanner.nextInt();
-            ints1[x] = i1;
+        int n1 = scanner.nextInt();
+        int n2 = scanner.nextInt();
+        int[][] ints1 = new int[n2][n1];
+        for (int i = 1; i < n2; i++) {
+            for (int j = 1; j < n1; j++) {
+                ints1[i][j] = scanner.nextInt();
+            }
         }
-//        for (int x = 0; x < i; x++) {
-//            int i1 = scanner.nextInt();
-//            ints2[x] = i1;
-//        }
-        System.out.println("main.solution_1 = " + main.solution_5(i,ints1));
-//        for (char x : main.solution_3(i, ints1, ints2).toCharArray()) {
-//            System.out.println("x = " + x);
-//        }
+        System.out.println("main.solution_1 = " + main.solution_7(n1,n2,ints1));
+    }
+
+    private String solution_7(int n1, int n2, int[][] arr) {
+        int answer = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 1; i <= n1 ; i++) {
+            for (int j = 1; j <= n1; j++) {
+                int cnt = 0;
+                for (int k = 0; k < n2; k++) {
+                    int pi = 0;
+                    int pj = 0;
+                    for (int l = 0; l < n1; l++) {
+                        if (arr[k][l] == i) {
+                            pi = l;
+                        }
+                        if (arr[k][l] == j) {
+                            pj = l;
+                        }
+                    }
+                    if (pi < pj) {
+                        cnt++;
+                    }
+                }
+                if (cnt == n2) {
+                    answer++;
+                }
+            }
+
+        }
+
+        System.out.println("answer = " + answer);
+        return null;
     }
 
     private String solution_5(int i, int[] ints1) {
@@ -52,7 +78,6 @@ public class Ch02Main {
         }
         return true;
     }
-
 
     private String solution_4(int x) {
         int answer = 0;

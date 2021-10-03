@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+<div th:fragment="fragment-companycar-search" class="col-lg-12">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form id="formBox"  class="form-inline">
+                <div class="form-row">
+                    <label class="col-sm-2 col-form-label">출고 년도</label>
+                    <div class="col-sm-3">
+                        <input name="createdModelYear" type="number"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <input name="lastedModelYear" type="number"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="col-sm-2 col-form-label">출고 년도</label>
+                    <div class="form-group">
+                        <label for="inputPassword6">Password</label>
+                        <input type="password" id="inputPassword6" class="form-control mx-sm-3"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword6">Password</label>
+                        <input type="password" id="inputPassword6" class="form-control mx-sm-3"/>
+                    </div>
+                </div>
+
+                <label>최대 주행 거리</label>
+                <input name="greaterEqualDistance" type="number"/>
+                <label>최소 주행 거리</label>
+                <input name="lessEqualDistance" type="number"/>
+                <label>최대 가격</label>
+                <input name="greaterEqualPrice" type="number"/>
+                <label>최소 가격</label>
+                <input name="lessEqualPrice" type="number"/>
+                <label>모델 명</label>
+                <input name="name" type="text"/>
+                <label>색깔</label>
+                <input name="color" type="text"/>
+                <label>차량 옵션</label>
+                <input name="modelOption" type="text"/>
+                <label>자동</label>
+                <input
+                        type="radio"
+                        name="carTransmissionKind"
+                        value="AUTOMATIC"
+                        checked="checked"
+                />
+                <label>수동</label>
+                <input type="radio" name="carTransmissionKind" value="STICK"/>CSS
+                <label>차량 탑승 인원</label>
+                <input type="number" name="passengers"/>
+                <label>차량 이미지 경로 등록 여부</label>
+                <input type="checkbox" name="isImageSrc"/>
+
+                <label>차량 등록자 이름</label>
+                <input type="text" name="registerAdminName"/>
+
+                <div class="col-md-3 col-xs-4">
+                    <div class="form-group">
+                        <div
+                                class="input-group date"
+                                id="datetimepicker1"
+                                data-target-input="nearest"
+                        >
+                            <input
+                                    type="text"
+                                    class="form-control datetimepicker-input"
+                                    data-target="#datetimepicker1"
+                                    value="01/10/2021"
+                                    id="datetimpepicker_first"
+                                    name="createdAt"
+                            />
+                            <div
+                                    class="input-group-append"
+                                    data-target="#datetimepicker1"
+                                    data-toggle="datetimepicker"
+                            >
+                                <div class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-4">
+                    <div class="form-group">
+                        <div
+                                class="input-group date"
+                                id="datetimepicker2"
+                                data-target-input="nearest"
+                        >
+                            <input
+                                    type="text"
+                                    class="form-control datetimepicker-input"
+                                    data-target="#datetimepicker2"
+                                    value="09/10/2021"
+                                    id="datetimpepicker_last"
+                                    name="lastCreatedAt"
+                            />
+                            <div
+                                    class="input-group-append"
+                                    data-target="#datetimepicker2"
+                                    data-toggle="datetimepicker"
+                            >
+                                <div class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="검색"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

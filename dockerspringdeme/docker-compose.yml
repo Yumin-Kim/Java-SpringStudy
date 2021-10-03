@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=testDB
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_HOST=%
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_config:/var/lib/mysql
+    networks:
+      - application_connect
+  webapplicatoin:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: spring_application
+    environment:
+      - SPRING_DB_URL=database
+    depends_on:
+      - database
+    networks:
+      - application_connect
+networks:
+  application_connect:
+      driver: bridge
