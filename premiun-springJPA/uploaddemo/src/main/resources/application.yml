@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: ${BUILD}
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+logging:
+  level:
+    org.apache.coyote.http11: debug
